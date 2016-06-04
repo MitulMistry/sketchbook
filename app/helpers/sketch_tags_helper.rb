@@ -1,0 +1,2 @@
+module SketchTagsHelper
+end
