@@ -1,3 +1,5 @@
 class SketchSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :description
+  has_many :tags
+  #has_many :comments
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :sketches, only: [:index, :show, :create, :update, :destroy]
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :comments, only: [:create, :update, :destroy]
-  #root 'home#index'
+  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

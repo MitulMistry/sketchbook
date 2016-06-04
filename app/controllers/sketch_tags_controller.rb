@@ -1,2 +1,0 @@
-class SketchTagsController < ApplicationController
-end
