@@ -38,6 +38,8 @@ gem 'active_model_serializers'
 #gem 'jquery-turbolinks' #fix issues with javascript executing through turbolinks
 #gem 'paperclip', '~> 5.0.0.beta1'
 
+gem 'bower-rails'
+
 #gem 'bootstrap', '~> 4.0.0.alpha3' #bootstrap 4
 
 #source 'https://rails-assets.org' do #goes along with bootstrap ruby gem
