@@ -1,11 +1,29 @@
-Gems:
+**To Do:**
+-get ui.bootstrap to work
+-add basic page routes
+	-Not logged in:
+		-login
+		-register
+	-Others:
+		-home page - show all sketches - filter by tags
+		-user show pages - profile + sketches
+			-Your profile
+		-user forms:
+			-edit profile
+		-sketch show pages
+		-sketch forms:
+			-new
+			-edit + delete?
 
+-implement Devise
+
+
+**Gems:**
 -Devise
 -Paperclip - for image uploading
 -Bootstrap?
 
-Models:
-
+**Models:**
 -devise User/Artist
 	-username
 	-first name
@@ -28,7 +46,7 @@ Models:
 -SketchTags
 	-belongs_to Sketch
 	-belongs_to Tag
-  
+
 -Comments
 	-belongs_to Sketch
 	-belongs_to User

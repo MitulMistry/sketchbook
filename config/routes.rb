@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :sketches, only: [:index, :show, :create, :update, :destroy]
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :comments, only: [:create, :update, :destroy]
