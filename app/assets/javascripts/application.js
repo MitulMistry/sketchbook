@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-ui-router
+//= require angular-resource
+//= require angular-ui-bootstrap
+//= require angular-devise
+//= require angular-messages
+//= require angular-flash-alert
+//= require ng-file-upload
 //= require_tree .
