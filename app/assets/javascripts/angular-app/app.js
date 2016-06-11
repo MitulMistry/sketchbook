@@ -1,7 +1,7 @@
 angular
   .module('app', [ //define module and include dependencies
     'ui.router', //for routing
-    'templates', //include templates folder
+    //'templates', //include templates folder
     'ngResource' //allow use of $resource
     //'ui.bootstrap', //NOT WORKING
   ])
