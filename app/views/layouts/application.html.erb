@@ -6,9 +6,10 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body ng-app="app">
 
-<%= yield %>
+<ui-view>
+</ui-view>
 
 </body>
 </html>
