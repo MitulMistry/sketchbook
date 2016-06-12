@@ -38,7 +38,8 @@ gem 'active_model_serializers'
 #gem 'jquery-turbolinks' #fix issues with javascript executing through turbolinks
 #gem 'paperclip', '~> 5.0.0.beta1'
 
-gem 'bower-rails'
+gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
+gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
 
 #gem 'bootstrap', '~> 4.0.0.alpha3' #bootstrap 4
 
