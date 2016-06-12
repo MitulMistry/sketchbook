@@ -3,7 +3,7 @@ angular
     'ui.router', //for routing
     'templates', //use angular-rails-templates gem to include html templates in the Rails asset pipeline for Angular
     'ngResource', //allow use of $resource
-    'ui.bootstrap'
+    'ui.bootstrap' //angular ui bootstrap - bootstrap components written in angular
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

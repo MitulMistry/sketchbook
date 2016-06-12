@@ -1,0 +1,24 @@
+<nav ng-controller="NavController" class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Sketchbook</a>
+    </div>
+
+    <div class="hidden-xs">
+      <ul class="nav nav-pills navbar-nav">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/login">Log In</a></li>
+        <li><a href="#/register">Register</a></li>
+        <li><a href="#/artists/1">Profile</a></li>
+        <li><a href="#/sketches/new">New Sketch</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
