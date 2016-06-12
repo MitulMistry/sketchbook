@@ -2,8 +2,8 @@ angular
   .module('app', [ //define module and include dependencies
     'ui.router', //for routing
     'templates', //use angular-rails-templates gem to include html templates in the Rails asset pipeline for Angular
-    'ngResource' //allow use of $resource
-    //'ui.bootstrap', //NOT WORKING
+    'ngResource', //allow use of $resource
+    'ui.bootstrap'
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

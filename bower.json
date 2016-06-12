@@ -4,7 +4,7 @@
       "angular": "v1.5.3",
       "angular-ui-router" : "latest",
       "angular-resource" : "v1.5.3",
-      "angular-ui-bootstrap" : "latest",
+      "angular-bootstrap" : "latest",
       "bootstrap" : "v3.3.6",
       "angular-devise" : "latest",
       "angular-messages" : "latest",

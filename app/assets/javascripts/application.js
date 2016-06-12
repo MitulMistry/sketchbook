@@ -16,7 +16,7 @@
 //= require angular-ui-router
 //= require angular-rails-templates
 //= require angular-resource
-//= require angular-ui-bootstrap
+//= require angular-bootstrap
 //= require angular-devise
 //= require angular-messages
 //= require angular-flash-alert
