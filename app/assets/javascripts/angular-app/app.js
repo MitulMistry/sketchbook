@@ -12,38 +12,43 @@ angular
         templateUrl: 'home.html', //set template url
         controller: 'HomeController as ctrl' //set controller for this route (equavelent of using <ng-controller="..."> in template)
       })
-      .state('login', {
-        url: '/login',
+      .state('home.login', { //home.login uses home.html and inserts login template into the <ui-view>
+        url: 'login',
         templateUrl: 'auth/login.html',
         controller: 'AuthController'
       })
-      .state('register', {
-        url: '/register',
+      .state('home.register', {
+        url: 'register',
         templateUrl: 'auth/register.html',
         controller: 'AuthController'
       })
-      .state('artist', {
-        url: '/artists/:id',
+      .state('home.artist', {
+        url: 'artists/:id',
         templateUrl: 'artists/show.html',
         controller: 'ArtistController as ctrl'
       })
-      .state('editArtist', {
-        url: '/artists/:id/edit',
+      .state('home.editArtist', {
+        url: 'artists/:id/edit',
         templateUrl: 'artists/edit.html',
         controller: 'EditArtistController as ctrl'
       })
-      .state('newSketch', {
-        url: '/sketches/new',
+      .state('home.newSketch', {
+        url: 'sketches/new',
         templateUrl: 'sketches/new.html',
         controller: 'NewSketchController as ctrl'
       })
-      .state('sketch', {
-        url: '/sketches/:id',
+      .state('home.sketches', {
+        url: 'sketches',
+        templateUrl: 'sketches/index.html',
+        controller: 'SketchesController as ctrl'
+      })
+      .state('home.sketch', {
+        url: 'sketches/:id',
         templateUrl: 'sketches/show.html',
         controller: 'SketchController as ctrl'
       })
-      .state('editSketch', {
-        url: '/sketches/:id/edit',
+      .state('home.editSketch', {
+        url: 'sketches/:id/edit',
         templateUrl: 'sketches/edit.html',
         controller: 'EditSketchController as ctrl'
       });
