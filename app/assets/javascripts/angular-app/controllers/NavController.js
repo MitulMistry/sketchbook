@@ -1,4 +1,4 @@
-function NavController($scope, $state, Auth, Message) {
+function NavController($scope, $state, Auth) { //Message
   var ctrl = this;
 
   $scope.signedIn = Auth.isAuthenticated; //used to check if user is signed in

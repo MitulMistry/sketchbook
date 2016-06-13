@@ -1,10 +1,10 @@
-function AuthController($scope, $state, Auth, Message) {
+function AuthController($scope, $state, Auth) { //Message
   var ctrl = this;
 
   $scope.login = function() {
     Auth.login($scope.user).then(function(){
       //Message.success('Signed in.')
-      $state.go('home.beaches')
+      $state.go('home.sketches')
     }, function(response) {
       //Message.danger(response.data.error);
     });
@@ -13,7 +13,7 @@ function AuthController($scope, $state, Auth, Message) {
   $scope.register = function() {
     Auth.register($scope.user).then(function(){
       //Message.success('Signed up successfully.');
-      $state.go('home.beaches')
+      $state.go('home.sketches')
     }, function(response) {
       //var errors = Message.processErrors(response.data.errors)
       //Message.danger(errors)
