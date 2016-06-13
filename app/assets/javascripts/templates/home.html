@@ -1,5 +1,9 @@
 <div ng-include="'navbar.html'"></div>
 
+<div class="jumbotron" ng-show="ctrl.home()">
+  <h1>Sketchbook</h1>
+</div>
+
 <div class="container">
   <ui-view></ui-view>
 </div>
