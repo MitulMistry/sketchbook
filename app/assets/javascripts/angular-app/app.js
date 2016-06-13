@@ -3,8 +3,8 @@ angular
     'ui.router', //for routing
     'templates', //use angular-rails-templates gem to include html templates in the Rails asset pipeline for Angular
     'ngResource', //allow use of $resource
-    'ui.bootstrap' //angular ui bootstrap - bootstrap components written in angular
-    //'Devise', //angular-devise to communicate with rails devise for authentication
+    'ui.bootstrap', //angular ui bootstrap - bootstrap components written in angular
+    'Devise' //angular-devise to communicate with rails devise for authentication
     //'ngMessages', //directive to show/hide messages
     //'ngFlash', //flash message for AngularJS and Bootstrap
     //'ngFileUpload' //angular directive to upload files
