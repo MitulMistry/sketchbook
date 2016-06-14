@@ -18,6 +18,7 @@
         <li ng-hide="signedIn()" ui-sref-active="active"><a href ui-sref="home.register">Register</a></li>
         <li ng-show="signedIn()" ui-sref-active="active"><a href="#/artists/1">Profile</a></li>
         <li ng-show="signedIn()" ui-sref-active="active"><a href ui-sref="home.newSketch">New Sketch</a></li>
+        <li ng-show="signedIn()"><a href>Logged in as {{ user.username }}</a></li>
         <li ng-show="signedIn()" ui-sref-active="active"><a href ng-click="logout()">Logout</a></li>
       </ul>
     </div>

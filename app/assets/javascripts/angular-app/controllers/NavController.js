@@ -24,7 +24,6 @@ function NavController($scope, $state, Auth) { //Message
     //Message.success("Signed out successfully.");
     $state.go('home');
   });
-
 }
 
 angular
