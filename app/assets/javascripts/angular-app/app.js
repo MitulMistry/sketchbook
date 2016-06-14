@@ -19,12 +19,26 @@ angular
       .state('home.login', { //home.login uses home.html and inserts login template into the <ui-view>
         url: 'login',
         templateUrl: 'auth/login.html',
-        controller: 'AuthController'
+        controller: 'AuthController',
+        onEnter: function($state, Auth) {
+          if (Auth._currentUser) { //if already logged in, redirect
+            Auth.currentUser().then(function (){
+              $state.go('home.sketches');
+            });
+          }
+        }
       })
       .state('home.register', {
         url: 'register',
         templateUrl: 'auth/register.html',
-        controller: 'AuthController'
+        controller: 'AuthController',
+        onEnter: function($state, Auth) {
+          if (Auth._currentUser) { //if already logged in, redirect
+            Auth.currentUser().then(function (){
+              $state.go('home.sketches');
+            });
+          }
+        }
       })
       .state('home.artists', {
         url: 'artists',
@@ -39,12 +53,22 @@ angular
       .state('home.editArtist', {
         url: 'artists/:id/edit',
         templateUrl: 'artists/edit.html',
-        controller: 'EditArtistController as ctrl'
+        controller: 'EditArtistController as ctrl',
+        onEnter: function($state, Auth) {
+          if (!Auth._currentUser) { //NEED TO CHECK IF CURRENT USER IS ARIST
+            $state.go('home');
+          }
+        }
       })
       .state('home.newSketch', {
         url: 'sketches/new',
         templateUrl: 'sketches/new.html',
-        controller: 'NewSketchController as ctrl'
+        controller: 'NewSketchController as ctrl',
+        onEnter: function($state, Auth) {
+          if (!Auth._currentUser) { //if not logged in, redirect
+            $state.go('home');
+          }
+        }
       })
       .state('home.sketches', {
         url: 'sketches',
@@ -59,7 +83,12 @@ angular
       .state('home.editSketch', {
         url: 'sketches/:id/edit',
         templateUrl: 'sketches/edit.html',
-        controller: 'EditSketchController as ctrl'
+        controller: 'EditSketchController as ctrl',
+        onEnter: function($state, Auth) {
+          if (!Auth._currentUser) { //NEED TO CHECK IF USER OWN'S SKETCH
+            $state.go('home');
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/'); //default route

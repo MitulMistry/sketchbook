@@ -1,6 +1,10 @@
 **To Do:**
--get ui.bootstrap to work
--add basic page routes
+-add angular route authentication for editArtist and editSketch
+-fix CSRF protection
+-css/less overriding
+
+X-get ui.bootstrap to work
+X-add basic page routes
 	-Not logged in:
 		-login
 		-register
@@ -15,7 +19,7 @@
 			-new
 			-edit + delete?
 
--implement Devise
+X-implement Devise
 
 
 **Gems:**
