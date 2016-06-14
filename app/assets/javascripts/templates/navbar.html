@@ -12,11 +12,12 @@
 
     <div class="hidden-xs">
       <ul class="nav nav-pills navbar-nav">
-        <li><a href="#/sketches">Sketches</a></li>
-        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#/login">Log In</a></li>
-        <li ng-hide="signedIn()" ui-sref-active="active"><a href="#/register">Register</a></li>
+        <li ui-sref-active="active"><a href ui-sref="home.sketches">Sketches</a></li>
+        <li ui-sref-active="active"><a href ui-sref="home.artists">Artists</a></li>
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href ui-sref="home.login">Log In</a></li>
+        <li ng-hide="signedIn()" ui-sref-active="active"><a href ui-sref="home.register">Register</a></li>
         <li ng-show="signedIn()" ui-sref-active="active"><a href="#/artists/1">Profile</a></li>
-        <li ng-show="signedIn()" ui-sref-active="active"><a href="#/sketches/new">New Sketch</a></li>
+        <li ng-show="signedIn()" ui-sref-active="active"><a href ui-sref="home.newSketch">New Sketch</a></li>
         <li ng-show="signedIn()" ui-sref-active="active"><a href ng-click="logout()">Logout</a></li>
       </ul>
     </div>

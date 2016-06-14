@@ -26,6 +26,11 @@ angular
         templateUrl: 'auth/register.html',
         controller: 'AuthController'
       })
+      .state('home.artists', {
+        url: 'artists',
+        templateUrl: 'artists/index.html',
+        controller: 'ArtistsController as ctrl'
+      })
       .state('home.artist', {
         url: 'artists/:id',
         templateUrl: 'artists/show.html',
