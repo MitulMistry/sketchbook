@@ -21,7 +21,7 @@ angular
         templateUrl: 'auth/login.html',
         controller: 'AuthController',
         onEnter: function($state, Auth) {
-          if (Auth._currentUser) { //if already logged in, redirect
+          if (Auth._currentUser) { //if already logged in, redirect - uses angular devise
             Auth.currentUser().then(function (){
               $state.go('home.sketches');
             });
