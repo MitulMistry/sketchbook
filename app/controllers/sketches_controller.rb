@@ -41,6 +41,6 @@ class SketchesController < ApplicationController
   end
 
   def sketch_params #strong params
-    params.require(:sketch).permit(:title, :description, tag_ids: [])
+    params.require(:sketch).permit(:title, :description, tag_ids: [], :image)
   end
 end

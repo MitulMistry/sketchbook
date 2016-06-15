@@ -20,16 +20,19 @@ end
 15.times do
   user = User.order("RANDOM()").first
 
-  user.sketches.create(
+  sketch = user.sketches.create(
     title: Faker::Book.title,
     description: Faker::Lorem.paragraph
   )
+
+  sketch.image.url("http://loremflickr.com/1024/768/sketch")
+  sketch.save
 end
 
-User.all.each do |user|
-  3.times { user.tags.create(name: Faker::Lorem.word) }
+6.times { Tag.create(name: Faker::Lorem.word) }
 
-  user.sketches.each do |sketch|
-    sketch.tags << user.tags.order("RANDOM()").first
-  end
+Sketch.all.each do |sketch|
+  random_tags = Tag.all.order("RANDOM()")
+  sketch.tags << random_tags.first
+  sketch.tags << random_tags.second if Faker::Number.between(1, 2) == 1
 end

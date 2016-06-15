@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -35,17 +34,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'faker'
 gem 'active_model_serializers'
-#gem 'jquery-turbolinks' #fix issues with javascript executing through turbolinks
-#gem 'paperclip', '~> 5.0.0.beta1'
+gem 'paperclip', '~> 5.0.0.beta2'
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
 gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
-
-#gem 'bootstrap', '~> 4.0.0.alpha3' #bootstrap 4
-
-#source 'https://rails-assets.org' do #goes along with bootstrap ruby gem
-  #gem 'rails-assets-tether', '>= 1.1.0'
-#end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
