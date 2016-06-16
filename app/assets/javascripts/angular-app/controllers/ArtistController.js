@@ -1,7 +1,7 @@
 function ArtistController(artist) { //artist is injected from app.js resolve
   var ctrl = this;
 
-  ctrl.artist = artist;
+  ctrl.artist = artist.data;
   //ctrl.data = artist.data;
 }
 

@@ -1,1 +1,7 @@
-<h1>Artist Show</h1>
+<div class="artist">
+  <h1>{{ ctrl.artist.username }}</h1>
+
+  <h4 ng-if="ctrl.artist.first_name || ctrl.artist.last_name">{{ ctrl.artist.first_name }} {{ ctrl.artist.last_name }}</h4>
+
+  <p ng-if="ctrl.artist.bio">{{ ctrl.artist.bio }}</p>
+</div>

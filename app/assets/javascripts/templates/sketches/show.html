@@ -1,1 +1,16 @@
-<h1>Sketch Show</h1>
+<div class="sketch">
+  <h1>{{ ctrl.sketch.title }}</h1>
+
+  <h4><a href ui-sref="home.artist({id: ctrl.sketch.user.id })">{{ ctrl.sketch.user.username }}</a></h4>
+
+  <p ng-if="ctrl.sketch.description">{{ ctrl.sketch.description }}</p>
+
+  <div class="tags" ng-if="ctrl.sketch.tags">
+    <p>
+      <strong>Tags:</strong>
+      <span ng-repeat="tag in ctrl.sketch.tags" class="label label-default">{{ tag.name }}</span>
+    </p>
+  </div>
+
+  <img ng-src="{{ ctrl.sketch.image }}">
+</div>
