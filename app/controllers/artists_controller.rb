@@ -2,8 +2,13 @@ class ArtistsController < ApplicationController
   before_action :find_artist, only: [:show, :update]
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
+  def index
+    @artists = User.all
+    render json: @artists
+  end
+
   def show
-    render json: @artist.sketches
+    render json: @artist
   end
 
   def update

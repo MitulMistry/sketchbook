@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :artists, only: [:index, :show, :update] #artist is not a model, just an alias for devise users
+
   resources :sketches, only: [:index, :show, :create, :update, :destroy]
   resources :tags, only: [:index, :show, :create, :update, :destroy]
-  resources :comments, only: [:create, :update, :destroy]
+  resources :comments, only: [:create, :update, :destroy]  
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

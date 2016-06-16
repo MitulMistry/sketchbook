@@ -43,12 +43,22 @@ angular
       .state('home.artists', {
         url: 'artists',
         templateUrl: 'artists/index.html',
-        controller: 'ArtistsController as ctrl'
+        controller: 'ArtistsController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          artists: function (ArtistsService) { //set artists equal to ArtistsService.getArtists() to be used in the template
+            return ArtistsService.getArtists();
+          }
+        }
       })
       .state('home.artist', {
         url: 'artists/:id',
         templateUrl: 'artists/show.html',
-        controller: 'ArtistController as ctrl'
+        controller: 'ArtistController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          artist: function ($stateParams, ArtistsService) {
+            return ArtistsService.getArtist($stateParams.id); //load individual artist
+          }
+        }
       })
       .state('home.editArtist', {
         url: 'artists/:id/edit',
