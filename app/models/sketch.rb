@@ -1,3 +1,5 @@
+require 'uri' #for URI.parse in image_from_url
+
 class Sketch < ActiveRecord::Base
   belongs_to :user
   has_many :sketch_tags
@@ -10,4 +12,8 @@ class Sketch < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 300 }
   validates :description, length: { maximum: 2000 }
+
+  def image_from_url(url)
+    self.image = URI.parse(url)
+  end
 end

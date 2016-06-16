@@ -25,8 +25,7 @@ end
     description: Faker::Lorem.paragraph
   )
 
-  sketch.image.url("http://loremflickr.com/1024/768/sketch")
-  sketch.save
+  sketch.image_from_url("http://loremflickr.com/1024/768/sketch")
 end
 
 6.times { Tag.create(name: Faker::Lorem.word) }
