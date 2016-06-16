@@ -1,11 +1,10 @@
 var Artist = { //defining an angular component (through setting an object) - Could also use a directive
   templateUrl: 'artists/artist.html', //sets html template to be used
   bindings: { //define arguments being passed to component - bindings for components, scope for directives
-    data: '=' //set id to a variable being passed in, i.e. when used: <item id="post"></item>
+    data: '=' //set data to a variable being passed in, i.e. when used: <item id="post"></item>
   },
-  controller: function() { //adding functionality to a controller for this component, injecting PostsService dependency
+  controller: function() { //can add functionality to a controller for this component by injecting dependencies such as a service
     var ctrl = this;
-    //console.log(ctrl.data);
   },
   controllerAs: 'artist' //sets controller to be refered to as artist in the template
 };
