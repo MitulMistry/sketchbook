@@ -1,6 +1,6 @@
-<div class="sketch">
-  <h3>{{ sketch.data.title }}</h3>
-  <h4>By: <a href ui-sref="home.artist({id: sketch.data.user.id })">{{ sketch.data.user.username }}</a></h4>
+<div class="sketch col-md-4 well">
+  <h4>{{ sketch.data.title }}</h4>
+  <h5>By: <a href ui-sref="home.artist({id: sketch.data.user.id })">{{ sketch.data.user.username }}</a></h5>
 
   <img ng-src="{{ sketch.data.image }}">
 </div>

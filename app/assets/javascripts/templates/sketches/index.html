@@ -1,7 +1,5 @@
 <h1>Sketches</h1>
 
-<ul class="sketches">
-  <li ng-repeat="sketch in ctrl.sketches"> <!-- iterate through posts set in Sketches controller -->
-    <sketch data="sketch"></sketch>
-  </li>
-</ul>
+<div class="sketches">
+  <sketch ng-repeat="sketch in ctrl.sketches" data="sketch"></sketch>
+</div>
