@@ -83,12 +83,22 @@ angular
       .state('home.sketches', {
         url: 'sketches',
         templateUrl: 'sketches/index.html',
-        controller: 'SketchesController as ctrl'
+        controller: 'SketchesController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          sketches: function (SketchesService) { //set sketches equal to SketchesService.getSketches() to be used in the template
+            return SketchesService.getSketches();
+          }
+        }
       })
       .state('home.sketch', {
         url: 'sketches/:id',
         templateUrl: 'sketches/show.html',
-        controller: 'SketchController as ctrl'
+        controller: 'SketchController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          sketch: function ($stateParams, SketchesService) {
+            return SketchesService.getSketch($stateParams.id); //load individual sketch
+          }
+        }
       })
       .state('home.editSketch', {
         url: 'sketches/:id/edit',
