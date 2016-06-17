@@ -64,6 +64,11 @@ angular
         url: 'artists/:id/edit',
         templateUrl: 'artists/edit.html',
         controller: 'EditArtistController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          sketch: function ($stateParams, ArtistsService) {
+            return ArtistsService.getArtist($stateParams.id); //load individual artist
+          }
+        },
         onEnter: function($state, Auth) {
           if (!Auth._currentUser) { //NEED TO CHECK IF CURRENT USER IS ARIST
             $state.go('home');
@@ -104,6 +109,11 @@ angular
         url: 'sketches/:id/edit',
         templateUrl: 'sketches/edit.html',
         controller: 'EditSketchController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          sketch: function ($stateParams, SketchesService) {
+            return SketchesService.getSketch($stateParams.id); //load individual sketch
+          }
+        },
         onEnter: function($state, Auth) {
           if (!Auth._currentUser) { //NEED TO CHECK IF USER OWN'S SKETCH
             $state.go('home');
