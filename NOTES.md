@@ -1,7 +1,11 @@
 **To Do:**
 -add angular route authentication for editArtist and editSketch
 -fix CSRF protection
--css/less overriding
+-css/less overriding for navbar
+-get messages working
+-edit/delete for images
+-devise user updating
+-truncate descriptions
 
 X-get ui.bootstrap to work
 X-add basic page routes

@@ -1,8 +1,8 @@
 <div class="col-md-2">
-  <h4>Search:</h4>
+  <input type="text" ng-model="ctrl.search" class="form-control" placeholder="Search Sketches">
   <h4>Tags:</h4>
 </div>
 
 <div class="col-md-10 sketches">
-  <sketch ng-repeat="sketch in ctrl.sketches" data="sketch"></sketch>
+  <sketch ng-repeat="sketch in ctrl.sketches | filter:ctrl.search" data="sketch"></sketch>
 </div>
