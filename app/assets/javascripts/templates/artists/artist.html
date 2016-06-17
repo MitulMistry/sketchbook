@@ -1,4 +1,4 @@
 <div class="artist col-md-4 well">
-  <h4>{{ artist.data.username }}</h4>
+  <h4><a href ui-sref="home.artist({id: artist.data.id })">{{ artist.data.username }}</a></h4>
   <p ng-if="artist.data.bio">{{ artist.data.bio }}</p>
 </div>
