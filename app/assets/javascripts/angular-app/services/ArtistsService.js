@@ -1,4 +1,4 @@
-function ArtistsService($http) {
+function ArtistsService($http, $state, $stateParams) {
   this.getArtists = function () { //get all the artists from the serialized controller action
     return $http.get('/artists.json');
   }
@@ -26,37 +26,13 @@ function ArtistsService($http) {
       headers: {
         "Content-Type": "application/json"
       }
+    }).then(function successCallback(response) { //success
+      $state.go('home.artist', {id: $stateParams.id }); //go back to profile page
+      //message
+    }, function errorCallback(response) { //error
+      //message
     });
 
-    //var data = {user: artist};
-    /*
-    $http({
-      method: 'PUT',
-      url: '/artists/' + artist.id,
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      transformRequest: function(obj) {
-        var str = [];
-        for(var p in obj)
-        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-        return str.join("&");
-      },
-      data: data
-    });
-    */
-
-    /*
-    var data = $.param({
-      user: {
-        id: artist.id,
-        username: artist.username,
-        first_name: artist.first_name,
-        last_name: artist.last_name,
-        bio: artist.bio
-      }
-    });
-    //console.log(artist);
-    $http.put('/artists/' + artist.id, data);
-    */
   }
 }
 
