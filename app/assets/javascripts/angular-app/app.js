@@ -72,8 +72,10 @@ angular
             return ArtistsService.getArtist($stateParams.id); //load individual artist
           }
         },
-        onEnter: function($state, Auth) {
-          if (!Auth._currentUser) { //NEED TO CHECK IF CURRENT USER IS ARIST
+        onEnter: function($state, Auth, $stateParams) {
+          if (!Auth._currentUser) {
+            $state.go('home');
+          } else if ($stateParams.id != Auth._currentUser.id) { //check if artist id in path matches current user id
             $state.go('home');
           }
         }
@@ -105,6 +107,9 @@ angular
         resolve: { //execute this code before the template is rendered
           sketch: function ($stateParams, SketchesService) {
             return SketchesService.getSketch($stateParams.id); //load individual sketch
+          },
+          user: function (Auth) {
+            return Auth.currentUser();
           }
         }
       })
@@ -117,8 +122,11 @@ angular
             return SketchesService.getSketch($stateParams.id); //load individual sketch
           }
         },
-        onEnter: function($state, Auth) {
-          if (!Auth._currentUser) { //NEED TO CHECK IF USER OWN'S SKETCH
+        onEnter: function($state, Auth, sketch) {
+          console.log(sketch);
+          if (!Auth._currentUser) {
+            $state.go('home');
+          } else if (sketch.data.user.id != Auth._currentUser.id) { //check if sketch's user id matches current user id
             $state.go('home');
           }
         }

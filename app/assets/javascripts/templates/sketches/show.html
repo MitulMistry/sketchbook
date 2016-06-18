@@ -1,5 +1,5 @@
 <div class="sketch">
-  <h2>{{ ctrl.sketch.title }}</h2>
+  <h2 class="page-header">{{ ctrl.sketch.title }}</h2>
 
   <h4>By: <a href ui-sref="home.artist({id: ctrl.sketch.user.id })">{{ ctrl.sketch.user.username }}</a></h4>
 
@@ -13,4 +13,6 @@
   </div>
 
   <img class="img-responsive" ng-src="{{ ctrl.sketch.image }}">
+
+  <p ng-show="ctrl.ifOwner()"></br><a href ui-sref="home.editSketch({id: ctrl.sketch.id})" class="btn btn-info" role="button">Edit Sketch</a></p>
 </div>
