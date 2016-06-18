@@ -1,31 +1,25 @@
-<div class="form-group">
-  <div class="col-sm-6">
+<div class="col-sm-6">
+
+  <div class="form-group">
     <label for="title" class="control-label">Title</label>
     <input type="text" ng-model="ctrl.sketch.title" class="form-control" id="title" required>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="col-sm-6">
+  <div class="form-group">
     <label for="description" class="control-label">Description</label>
-    <textarea ng-model="ctrl.sketch.description" id="description" cols="30" rows="3" class="form-control"></textarea>
+    <textarea ng-model="ctrl.sketch.description" id="description" cols="30" rows="4" class="form-control"></textarea>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="col-sm-6">
+  <div class="form-group">
     <h4>Tags:</h4>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="col-sm-6">
+  <div class="form-group">
     <h4>Upload Image:</h4>
   </div>
-</div>
 
-<div class="form-group">
-  <div class="col-sm-6">
+  <div class="form-group">
     <input type="submit" class="btn btn-primary" ng-disabled="sketchForm.$invalid">
   </div>
+
 </div>
