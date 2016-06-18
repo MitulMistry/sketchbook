@@ -57,6 +57,9 @@ angular
         resolve: { //execute this code before the template is rendered
           artist: function ($stateParams, ArtistsService) {
             return ArtistsService.getArtist($stateParams.id); //load individual artist
+          },
+          user: function (Auth) {
+            return Auth.currentUser();
           }
         }
       })
@@ -65,7 +68,7 @@ angular
         templateUrl: 'artists/edit.html',
         controller: 'EditArtistController as ctrl',
         resolve: { //execute this code before the template is rendered
-          sketch: function ($stateParams, ArtistsService) {
+          artist: function ($stateParams, ArtistsService) {
             return ArtistsService.getArtist($stateParams.id); //load individual artist
           }
         },

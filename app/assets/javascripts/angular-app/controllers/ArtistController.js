@@ -1,8 +1,12 @@
-function ArtistController(artist) { //artist is injected from app.js resolve
+function ArtistController(artist, user, Auth) { //artist and user are injected from app.js resolve
   var ctrl = this;
 
   ctrl.artist = artist.data;
   //ctrl.data = artist.data;
+
+  ctrl.ifOwner = function() {
+    return (ctrl.artist.id == user.id);
+  }
 }
 
 angular
