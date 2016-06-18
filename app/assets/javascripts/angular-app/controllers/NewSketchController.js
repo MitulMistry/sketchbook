@@ -1,6 +1,9 @@
-function NewSketchController() {
+function NewSketchController($state, $stateParams, Auth) {
   var ctrl = this;
 
+  ctrl.createSketch = function(){
+
+  }
 }
 
 angular
