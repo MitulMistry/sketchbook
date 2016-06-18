@@ -14,5 +14,8 @@
 
   <img class="img-responsive" ng-src="{{ ctrl.sketch.image }}">
 
-  <p ng-show="ctrl.ifOwner()"></br><a href ui-sref="home.editSketch({id: ctrl.sketch.id})" class="btn btn-info" role="button">Edit Sketch</a></p>
+  <p ng-show="ctrl.ifOwner()">
+    </br><a href ui-sref="home.editSketch({id: ctrl.sketch.id})" class="btn btn-info" role="button">Edit Sketch</a>
+    <a href class="btn btn-danger" role="button" ng-click="ctrl.deleteSketch()">Delete Sketch</a>
+  </p>
 </div>

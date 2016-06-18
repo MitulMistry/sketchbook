@@ -7,6 +7,11 @@ function SketchController(sketch, user) { //sketch and user are injected from ap
   ctrl.ifOwner = function() {
     return (ctrl.sketch.user.id == user.id);
   }
+
+  ctrl.deleteSketch = function() {
+    alert('Implement delete sketch');
+    //check, are you sure? then send delete request 
+  }
 }
 
 angular
