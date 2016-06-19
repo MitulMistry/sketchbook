@@ -8,6 +8,7 @@
 -truncate descriptions
 -PAGINATION
 -bootstrap columns for grid
+-form validations
 
 X-get ui.bootstrap to work
 X-add basic page routes
