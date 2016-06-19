@@ -5,7 +5,11 @@ function ArtistController(artist, user, Auth) { //artist and user are injected f
   //ctrl.data = artist.data;
 
   ctrl.ifOwner = function() {
-    return (ctrl.artist.id == user.id);
+    if (user == null) {
+      return false;
+    } else {
+      return (ctrl.artist.id === user.id);
+    }
   }
 }
 

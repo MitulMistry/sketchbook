@@ -59,7 +59,7 @@ angular
             return ArtistsService.getArtist($stateParams.id); //load individual artist
           },
           user: function (Auth) {
-            return Auth.currentUser();
+            return Auth._currentUser;
           }
         }
       })
@@ -109,7 +109,7 @@ angular
             return SketchesService.getSketch($stateParams.id); //load individual sketch
           },
           user: function (Auth) {
-            return Auth.currentUser();
+            return Auth._currentUser;
           }
         }
       })
