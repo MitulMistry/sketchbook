@@ -2,9 +2,7 @@ function ArtistController(artist, user, sketches) { //artist, user, and sketches
   var ctrl = this;
 
   ctrl.artist = artist.data;
-  //ctrl.data = artist.data;
   ctrl.sketches = sketches.data;
-  //console.log(ctrl.sketches);
 
   ctrl.ifOwner = function() {
     if (user == null) {

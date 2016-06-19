@@ -7,6 +7,7 @@
 -devise user updating
 -truncate descriptions
 -PAGINATION
+-bootstrap columns for grid
 
 X-get ui.bootstrap to work
 X-add basic page routes
