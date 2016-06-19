@@ -12,12 +12,12 @@ class SketchesController < ApplicationController
   end
 
   def create
-    #@sketch = current_user.sketches.build(sketch_params)
-    #if @sketch.save
-      #render json: @sketch
-    #else
+    @sketch = current_user.sketches.build(sketch_params)
+    if @sketch.save
+      render json: @sketch
+    else
       #error
-    #end
+    end
   end
 
   def update

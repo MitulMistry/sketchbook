@@ -6,6 +6,7 @@
 -edit/delete for images
 -devise user updating
 -truncate descriptions
+-PAGINATION
 
 X-get ui.bootstrap to work
 X-add basic page routes

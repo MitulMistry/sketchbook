@@ -10,7 +10,7 @@ function SketchController(sketch, user) { //sketch and user are injected from ap
 
   ctrl.deleteSketch = function() {
     alert('Implement delete sketch');
-    //check, are you sure? then send delete request 
+    //check, are you sure? then send delete request
   }
 }
 
