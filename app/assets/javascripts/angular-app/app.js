@@ -58,6 +58,9 @@ angular
           artist: function ($stateParams, ArtistsService) {
             return ArtistsService.getArtist($stateParams.id); //load individual artist
           },
+          sketches: function($stateParams, ArtistsService) {
+            return ArtistsService.getArtistSketches($stateParams.id); //load the sketches of the artist
+          },
           user: function (Auth) {
             return Auth._currentUser;
           }

@@ -7,6 +7,10 @@ function ArtistsService($http, $state, $stateParams) {
     return $http.get('/artists/' + id + '.json');
   }
 
+  this.getArtistSketches = function(artist_id) {
+    return $http.get('/artists/' + artist_id + '/sketches' + '.json');
+  }
+
   this.updateArtist = function(artist) {
     var data = {
       user: { //rails strong params expects user model

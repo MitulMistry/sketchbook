@@ -6,3 +6,7 @@
 
   <p ng-show="ctrl.ifOwner()"></br><a href ui-sref="home.editArtist({id: ctrl.artist.id})" class="btn btn-info" role="button">Edit Profile</a></p>
 </div>
+
+<div>
+ <sketch ng-repeat="sketch in ctrl.sketches" data="sketch"></sketch>
+</div>

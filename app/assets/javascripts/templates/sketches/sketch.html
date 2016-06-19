@@ -2,5 +2,5 @@
   <img class="img-responsive" ng-src="{{ sketch.data.image }}">
 
   <h4><a href ui-sref="home.sketch({id: sketch.data.id })">{{ sketch.data.title }}</a></h4>
-  <h5>By: <a href ui-sref="home.artist({id: sketch.data.user.id })">{{ sketch.data.user.username }}</a></h5>
+  <h5 ng-hide="sketch.ifArtistShowPage()">By: <a href ui-sref="home.artist({id: sketch.data.user.id })">{{ sketch.data.user.username }}</a></h5>
 </div>
