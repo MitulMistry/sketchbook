@@ -33,6 +33,18 @@ function SketchesService($http, $state) {
       //message
     });
   }
+
+  this.deleteSketch = function(id) {
+    $http({
+      method: 'DELETE',
+      url: '/sketches/' + id
+    }).then(function successCallback(response) { //success
+      $state.go('home');
+      //message
+    }, function errorCallback(response) { //error
+      //message
+    });
+  }
 }
 
 angular
