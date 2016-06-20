@@ -21,4 +21,5 @@
 //= require angular-messages
 //= require angular-flash-alert
 //= require ng-file-upload
+//= require angular-checklist-model
 //= require_tree .

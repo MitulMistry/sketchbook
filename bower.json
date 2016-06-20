@@ -1,7 +1,7 @@
 {
   "name": "sketchbook",
   "dependencies": {
-      "angular": "v1.5.3",
+      "angular": "v1.5.7",
       "angular-ui-router" : "latest",
       "angular-resource" : "v1.5.3",
       "angular-bootstrap" : "latest",
@@ -9,6 +9,7 @@
       "angular-devise" : "latest",
       "angular-messages" : "latest",
       "angular-flash-alert" : "latest",
-      "ng-file-upload": "latest"
+      "ng-file-upload": "latest",
+      "angular-checklist-model": "latest"
     }
 }

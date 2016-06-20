@@ -7,7 +7,8 @@ angular
     'Devise', //angular-devise to communicate with rails devise for authentication
     'ngMessages', //directive to show/hide messages
     'ngFlash', //flash message for AngularJS and Bootstrap
-    'ngFileUpload' //angular directive to upload files
+    'ngFileUpload', //angular directive to upload files
+    'checklist-model' //angular checklist-model for checkbox arrays for forms
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
