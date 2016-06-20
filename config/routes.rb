@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :comments, only: [:create, :update, :destroy]
 
-  get 'test' => 'sketches#test'
-
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -20,11 +20,6 @@ class SketchesController < ApplicationController
     end
   end
 
-  def test
-    @sketch = Sketch.new
-    render template: 'test', :layout => false
-  end
-
   def update
     if @sketch.update(sketch_params)
       render json: @sketch
