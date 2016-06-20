@@ -16,8 +16,13 @@ class SketchesController < ApplicationController
     if @sketch.save
       render json: @sketch
     else
-      #error
+      render json: { errors: @sketch.errors.full_messages }, status: 422
     end
+  end
+
+  def test
+    @sketch = Sketch.new
+    render template: 'test', :layout => false
   end
 
   def update

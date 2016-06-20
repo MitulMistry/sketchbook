@@ -20,7 +20,7 @@
     <input type="file" ngf-select ng-model="ctrl.picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">
     <i ng-show="sketchForm.file.$error.required">*required</i><br>
     <i ng-show="sketchForm.file.$error.maxSize">File too large {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
-    <img ng-show="myForm.file.$valid" ngf-thumbnail="ctrl.picFile" class="thumb">
+    <img ng-show="sketchForm.file.$valid" ngf-thumbnail="ctrl.picFile" class="thumb">
     <button ng-click="ctrl.picFile = null" ng-show="ctrl.picFile">Remove</button>
     <br>
 

@@ -5,7 +5,7 @@ class Sketch < ActiveRecord::Base
   has_many :sketch_tags
   has_many :tags, through: :sketch_tags
 
-  has_attached_file :image#, styles: { large: "1024x768>", medium: "300x300>", thumb: "100x100#" }
+  has_attached_file :image#, styles: { large: "1024x768>", medium: "300x300>", thumb: "100x100#" }#, :default_url => "/profile_photo_store/missing.png"
   #validates_attachment_content_type :image, content_type: /\Aimage/
   #validates_attachment_file_name :image, matches: [/png\Z/, /jpe?g\Z/]
   do_not_validate_attachment_file_type :image
