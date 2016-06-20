@@ -1,5 +1,6 @@
 class ArtistsController < ApplicationController
   before_action :find_artist, only: [:show, :update, :sketches]
+  before_action :authorize_ownership, only: :update
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
   def index
@@ -19,7 +20,7 @@ class ArtistsController < ApplicationController
     if @artist.update(artist_params)
       render json: @artist
     else
-      #error
+      render json: { errors: @artist.errors.full_messages }, status: 422
     end
   end
 
@@ -28,6 +29,13 @@ class ArtistsController < ApplicationController
 
   def find_artist
     @artist = User.find(params[:id])
+  end
+
+  def authorize_ownership
+    if @artist != current_user
+      render nothing: true, status: 403 #403 forbidden
+      return #guard clause
+    end
   end
 
   def artist_params #strong params

@@ -12,25 +12,25 @@ class TagsController < ApplicationController
   end
 
   def create
-    #@tag = Tag.build(tag_params)
-    #if @tag.save
-      #render json: @tag
-    #else
-      #error
-    #end
-  end
-
-  def update
-    if @tag.update(tag_params)
+    @tag = Tag.build(tag_params)
+    if @tag.save
       render json: @tag
     else
-      #error
+      render json: { errors: @tag.errors.full_messages }, status: 422
     end
   end
 
+  def update
+    # if @tag.update(tag_params)
+    #   render json: @tag
+    # else
+    #   render json: { errors: @tag.errors.full_messages }
+    # end
+  end
+
   def destroy
-    @tag.destroy
-    render nothing: true
+    # @tag.destroy
+    # render nothing: true
   end
 
   #--------------------

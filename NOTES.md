@@ -1,5 +1,8 @@
 **To Do:**
 -add angular route authentication for editArtist and editSketch
+-recheck authentications
+-image validations in sketch model
+-controller errors and status codes
 -fix CSRF protection
 -css/less overriding for navbar
 -get messages working

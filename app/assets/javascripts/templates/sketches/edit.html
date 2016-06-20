@@ -1,4 +1,4 @@
 <h3 class="page-header">Edit Sketch: {{ ctrl.sketch.title }}</h3>
-<form class="form-horizontal" ng-submit="ctrl.updateSketch()">
+<form class="form-horizontal" ng-submit="ctrl.updateSketch()" name="sketchForm">
   <div ng-include="'sketches/_form.html'"></div>
 </form>

@@ -1,5 +1,6 @@
 class SketchesController < ApplicationController
   before_action :find_sketch, only: [:show, :update, :destroy]
+  before_action :authorize_ownership, only: [:update, :destroy]
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
   def index
@@ -24,7 +25,7 @@ class SketchesController < ApplicationController
     if @sketch.update(sketch_params)
       render json: @sketch
     else
-      #error
+      render json: { errors: @sketch.errors.full_messages }, status: 422
     end
   end
 
@@ -38,6 +39,13 @@ class SketchesController < ApplicationController
 
   def find_sketch
     @sketch = Sketch.find(params[:id])
+  end
+
+  def authorize_ownership
+    if @sketch.user != current_user
+      render nothing: true, status: 403 #403 forbidden
+      return #guard clause
+    end
   end
 
   def sketch_params #strong params

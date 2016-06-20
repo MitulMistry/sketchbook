@@ -87,6 +87,11 @@ angular
         url: 'sketches/new',
         templateUrl: 'sketches/new.html',
         controller: 'NewSketchController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          tags: function (TagsService) {
+            return TagsService.getTags();
+          }
+        },
         onEnter: function($state, Auth) {
           if (!Auth._currentUser) { //if not logged in, redirect
             $state.go('home');
