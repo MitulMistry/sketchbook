@@ -11,16 +11,14 @@ function NewSketchController($scope, Upload, $timeout, SketchesService, TagsServ
     file.upload = Upload.upload({
       url: '/sketches',
       method: 'POST',
-      fields: {
-        'sketch[title]': ctrl.sketch.title,
-        'sketch[description]': ctrl.sketch.description//,
-        //'sketch[tags]: []
-      },
-      file: file,
-      fileFormDataName: 'sketch[image]'
-
-      //url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-      //data: {username: $scope.username, file: file},
+      data: {
+        sketch: { //structured to match rails strong params in sketches controller
+          image: file,
+          title: ctrl.sketch.title,
+          description: ctrl.sketch.description//,
+          //tags: []
+        }
+      }
     });
 
     file.upload.then(function (response) {
