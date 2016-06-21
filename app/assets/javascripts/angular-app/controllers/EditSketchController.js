@@ -1,10 +1,11 @@
-function EditSketchController(sketch, $state, $stateParams, Auth) { //sketch is injected from app.js resolve
+function EditSketchController(sketch, tags, $state, $stateParams, Auth, SketchesService, TagsService) { //sketch and tags is injected from app.js resolve
   var ctrl = this;
 
   ctrl.sketch = sketch.data;
+  ctrl.tags = tags.data;
 
   ctrl.updateSketch = function(){
-
+    
   }
 }
 
