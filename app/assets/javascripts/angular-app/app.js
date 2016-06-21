@@ -129,6 +129,9 @@ angular
         resolve: { //execute this code before the template is rendered
           sketch: function ($stateParams, SketchesService) {
             return SketchesService.getSketch($stateParams.id); //load individual sketch
+          },
+          tags: function (TagsService) {
+            return TagsService.getTags();
           }
         },
         onEnter: function($state, Auth, sketch) {

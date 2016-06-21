@@ -7,10 +7,10 @@ function TagsService($http) {
     return $http.get('/tags/' + id + '.json');
   }
 
-  this.createTag = function(tag) {
+  this.createTag = function(name) {
     var data = {
       tag: { //rails strong params expects tag model
-        name: tag.name
+        name: name
       }
     };
 

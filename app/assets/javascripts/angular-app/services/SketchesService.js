@@ -8,11 +8,6 @@ function SketchesService($http, $state, Upload, $timeout) {
   }
 
   this.createSketchWithForm = function(file, sketch, errorMsg) {
-
-    // var tags = sketch.tags.map(function(num) {
-    //   return String(num);
-    // });
-
     file.upload = Upload.upload({
       url: '/sketches',
       method: 'POST',
