@@ -3,9 +3,14 @@ function EditSketchController(sketch, tags, $state, $stateParams, Auth, Sketches
 
   ctrl.sketch = sketch.data;
   ctrl.tags = tags.data;
+  
+  //sketch.tags comes as an array of tag objects, but for the checklist-model they need to be an array of ids
+  ctrl.sketch.tags = ctrl.sketch.tags.map(function(tag) {
+    return tag.id;
+  });
 
   ctrl.updateSketch = function(){
-    
+    //console.log(ctrl.sketch);
   }
 }
 
