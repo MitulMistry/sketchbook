@@ -8,6 +8,11 @@ function SketchesService($http, $state, Upload, $timeout) {
   }
 
   this.createSketchWithForm = function(file, sketch, errorMsg) {
+
+    // var tags = sketch.tags.map(function(num) {
+    //   return String(num);
+    // });
+
     file.upload = Upload.upload({
       url: '/sketches',
       method: 'POST',
@@ -15,8 +20,9 @@ function SketchesService($http, $state, Upload, $timeout) {
         sketch: { //structured to match rails strong params in sketches controller
           image: file,
           title: sketch.title,
-          description: sketch.description//,
-          //tags: []
+          description: sketch.description,
+          tag_ids: sketch.tags //this sends data as "tag_ids"=>{"0"=>"2", "1"=>"4"} when it should be "tag_ids"=>["2", "4"] - for now implemented back end solution to check format in rails sketches_controller
+          //JSON.stringify(sketch.tags) //"tag_ids[]": [1,2]//angular.toJson(tags) //angular.toJson(sketch.tags) //sketch.tags
         }
       }
     });

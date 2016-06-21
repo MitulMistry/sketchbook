@@ -1,6 +1,7 @@
 class SketchesController < ApplicationController
   before_action :find_sketch, only: [:show, :update, :destroy]
   before_action :authorize_ownership, only: [:update, :destroy]
+  before_action :check_tag_ids, only: [:create, :update] #check that tag_ids are in the proper format
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
   def index
@@ -50,5 +51,11 @@ class SketchesController < ApplicationController
 
   def sketch_params #strong params
     params.require(:sketch).permit(:title, :description, :image, tag_ids: [])
+  end
+
+  def check_tag_ids
+    if params[:sketch][:tag_ids].is_a?(Hash) #if it looks like this: "tag_ids"=>{"0"=>"2", "1"=>"4"}}
+      params[:sketch][:tag_ids] = params[:sketch][:tag_ids].values #then set it to this: "tag_ids"=>["2", "4"]
+    end
   end
 end
