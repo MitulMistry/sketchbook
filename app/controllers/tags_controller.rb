@@ -21,16 +21,16 @@ class TagsController < ApplicationController
   end
 
   def update
-    # if @tag.update(tag_params)
-    #   render json: @tag
-    # else
-    #   render json: { errors: @tag.errors.full_messages }
-    # end
+    if @tag.update(tag_params)
+      render json: @tag
+    else
+      render json: { errors: @tag.errors.full_messages }
+    end
   end
 
   def destroy
-    # @tag.destroy
-    # render nothing: true
+    @tag.destroy
+    render nothing: true
   end
 
   #--------------------
@@ -41,6 +41,6 @@ class TagsController < ApplicationController
   end
 
   def tag_params #strong params
-    params.require(:tag).permit(:name, sketch_ids: [])
+    params.require(:tag).permit(:name) #, sketch_ids: []
   end
 end
