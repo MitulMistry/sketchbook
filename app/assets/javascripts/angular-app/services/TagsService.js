@@ -14,7 +14,7 @@ function TagsService($http) {
       }
     };
 
-    $http({
+    return $http({
       method: 'POST',
       dataType: 'json',
       url: '/tags',
@@ -22,13 +22,7 @@ function TagsService($http) {
       headers: {
         "Content-Type": "application/json"
       }
-    })/*.then(function successCallback(response) { //success
-      return response;
-      //message
-    }, function errorCallback(response) { //error
-      //return response;
-      //message
-    })*/;
+    });
   }
 }
 

@@ -10,13 +10,25 @@ function NewSketchController(tags, $scope, Upload, $timeout, SketchesService, Ta
   
   ctrl.createTag = function(name){
     TagsService.createTag(name).then(function(response){
-      //console.log(response);
-      //ctrl.tags.push(response.id);
-    });
-    
-    
-    TagsService.getTags().then(function(response){
-      ctrl.tags = response.data;
+      var newTag = response.data; //gets the new tag as a response from controller create action
+      ctrl.tags.push(newTag); //add the new tag to the tags so a checkbox is created
+      
+      if (!ctrl.sketch.tags){ //if the sketches tags are null (empty), create an empty array so you can push
+          ctrl.sketch.tags = [];
+      }
+      
+      ctrl.sketch.tags.push(newTag.id); //add the new tag id onto the sketch's tags so it can be automatically checked in checklist-model
+      
+      /*
+      TagsService.getTags().then(function(response2){ //then, once you've created the tag, get all the tags again
+        ctrl.tags = response2.data;
+        if (!ctrl.sketch.tags){ //if the sketches tags are null (empty), create an empty array so you can push
+          ctrl.sketch.tags = [];
+        }
+        ctrl.sketch.tags.push(newTag.id); //add the new tag id onto the sketch's tags so it can be automatically checked in checklist-model
+      });
+      */
+      
     });
   }
 }
