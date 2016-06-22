@@ -1,4 +1,4 @@
-function NewSketchController($scope, Upload, $timeout, SketchesService, TagsService, tags) { //tags injected from app.js resolve
+function NewSketchController(tags, $scope, Upload, $timeout, SketchesService, TagsService) { //tags injected from app.js resolve
   var ctrl = this;
 
   ctrl.sketch = {};
@@ -6,6 +6,15 @@ function NewSketchController($scope, Upload, $timeout, SketchesService, TagsServ
 
   ctrl.createSketch = function(){
     SketchesService.createSketchWithForm(ctrl.picFile, ctrl.sketch, $scope.errorMsg);
+  }
+  
+  ctrl.createTag = function(name){
+    TagsService.createTag(name);
+    console.log(ctrl.tags);
+    TagsService.getTags().then(function(data){
+      ctrl.tags = data;
+    });
+    console.log(ctrl.tags);
   }
 }
 

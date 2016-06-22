@@ -12,7 +12,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.build(tag_params)
+    @tag = Tag.new(tag_params)
     if @tag.save
       render json: @tag
     else
