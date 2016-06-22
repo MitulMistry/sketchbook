@@ -106,6 +106,9 @@ angular
         resolve: { //execute this code before the template is rendered
           sketches: function (SketchesService) { //set sketches equal to SketchesService.getSketches() to be used in the template
             return SketchesService.getSketches();
+          },
+          tags: function(TagsService) {
+            return TagsService.getTags();
           }
         }
       })

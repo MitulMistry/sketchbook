@@ -16,7 +16,7 @@ function SketchesService($http, $state, Upload, $timeout) {
           image: file,
           title: sketch.title,
           description: sketch.description,
-          tag_ids: sketch.tags //this sends data as "tag_ids"=>{"0"=>"2", "1"=>"4"} when it should be "tag_ids"=>["2", "4"] - for now implemented back end solution to check format in rails sketches_controller
+          tag_ids: sketch.tags //this sends data as "tag_ids"=>{"0"=>"2", "1"=>"4"} when it should be "tag_ids"=>["2", "4"] - for now implemented back end solution to check format in rails sketches_controller
           //JSON.stringify(sketch.tags) //"tag_ids[]": [1,2]//angular.toJson(tags) //angular.toJson(sketch.tags) //sketch.tags
         }
       }

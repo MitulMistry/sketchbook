@@ -54,8 +54,8 @@ class SketchesController < ApplicationController
   end
 
   def check_tag_ids
-    if params[:sketch][:tag_ids].is_a?(Hash) #if it looks like this: "tag_ids"=>{"0"=>"2", "1"=>"4"}}
-      params[:sketch][:tag_ids] = params[:sketch][:tag_ids].values #then set it to this: "tag_ids"=>["2", "4"]
+    if params[:sketch][:tag_ids].is_a?(Hash) #if it looks like this: "tag_ids"=>{"0"=>"2", "1"=>"4"}}
+      params[:sketch][:tag_ids] = params[:sketch][:tag_ids].values #then set it to this: "tag_ids"=>["2", "4"]
     end
   end
 end
