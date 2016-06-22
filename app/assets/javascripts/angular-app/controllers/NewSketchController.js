@@ -9,12 +9,15 @@ function NewSketchController(tags, $scope, Upload, $timeout, SketchesService, Ta
   }
   
   ctrl.createTag = function(name){
-    TagsService.createTag(name);
-    console.log(ctrl.tags);
-    TagsService.getTags().then(function(data){
-      ctrl.tags = data;
+    TagsService.createTag(name).then(function(response){
+      //console.log(response);
+      //ctrl.tags.push(response.id);
     });
-    console.log(ctrl.tags);
+    
+    
+    TagsService.getTags().then(function(response){
+      ctrl.tags = response.data;
+    });
   }
 }
 

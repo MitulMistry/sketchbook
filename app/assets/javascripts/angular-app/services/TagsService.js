@@ -22,11 +22,13 @@ function TagsService($http) {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(function successCallback(response) { //success
+    })/*.then(function successCallback(response) { //success
+      return response;
       //message
     }, function errorCallback(response) { //error
+      //return response;
       //message
-    });
+    })*/;
   }
 }
 
