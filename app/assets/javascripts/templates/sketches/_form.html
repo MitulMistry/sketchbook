@@ -1,4 +1,4 @@
-<div class="col-sm-6">
+<div class="col-md-6">
 
   <div class="form-group">
     <label for="title" class="control-label">Title</label>
@@ -37,7 +37,7 @@
   <div class="form-group">
     <h4>Upload Image:</h4>
 
-    <input type="file" ngf-select ng-model="ctrl.picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">
+    <input type="file" ngf-select ng-model="ctrl.picFile" name="file" accept="image/*" ngf-max-size="2MB" ng-required='!ctrl.sketch.image' ngf-model-invalid="errorFile">
     <i ng-show="sketchForm.file.$error.required">*required</i><br>
     <i ng-show="sketchForm.file.$error.maxSize">File too large {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
     <img ng-show="sketchForm.file.$valid" ngf-thumbnail="ctrl.picFile" class="thumb">

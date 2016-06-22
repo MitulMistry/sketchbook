@@ -47,29 +47,47 @@ function SketchesService($http, $state, Upload, $timeout) {
     if (file) data.sketch.image = file;
     if (sketch.title) data.sketch.title = sketch.title;
     if (sketch.description) data.sketch.description = sketch.description;
-    if (sketch.tag_ids) data.sketch.tag_ids = sketch.tag_ids;
+    if (sketch.tags) data.sketch.tag_ids = sketch.tags;
     
-    
-    file.upload = Upload.upload({
-      url: '/sketches/' + sketch.id,
-      method: 'PUT',
-      data: data
-    });
-
-    file.upload.then(function (response) { //sucess
-      $timeout(function () {
-        file.result = response.data;
+    if (file) {
+      
+      file.upload = Upload.upload({
+        url: '/sketches/' + sketch.id,
+        method: 'PUT',
+        data: data
       });
-
-      $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
-      //message?
-    }, function (response) { //error
-      if (response.status > 0)
-      errorMsg = response.status + ': ' + response.data; //$scope.errorMsg - not sure if this works being in the service
-    }, function (evt) { //progress
-      // Math.min is to fix IE which reports 200% sometimes
-      file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-    });
+  
+      file.upload.then(function (response) { //sucess
+        $timeout(function () {
+          file.result = response.data;
+        });
+  
+        $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
+        //message?
+      }, function (response) { //error
+        if (response.status > 0)
+        errorMsg = response.status + ': ' + response.data; //$scope.errorMsg - not sure if this works being in the service
+      }, function (evt) { //progress
+        // Math.min is to fix IE which reports 200% sometimes
+        file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+      });
+      
+    } else { //if there's no file, then use standard $http request
+      
+      $http({ //return
+        method: 'PUT',
+        dataType: 'json',
+        url: '/sketches/' + sketch.id,
+        data: data,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function(response) {
+        $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
+        //message?
+      });
+      
+    }
   }
 
   this.deleteSketch = function(id) {

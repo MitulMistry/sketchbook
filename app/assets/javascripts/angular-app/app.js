@@ -135,7 +135,6 @@ angular
           }
         },
         onEnter: function($state, Auth, sketch) {
-          console.log(sketch);
           if (!Auth._currentUser) {
             $state.go('home');
           } else if (sketch.data.user.id != Auth._currentUser.id) { //check if sketch's user id matches current user id

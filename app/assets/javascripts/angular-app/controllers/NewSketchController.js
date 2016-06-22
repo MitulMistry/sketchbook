@@ -8,7 +8,7 @@ function NewSketchController(tags, $scope, Upload, $timeout, SketchesService, Ta
     SketchesService.createSketchWithForm(ctrl.picFile, ctrl.sketch, $scope.errorMsg);
   }
   
-  ctrl.createTag = function(name){//duplicate in EditSketchController
+  ctrl.createTag = function(name){ //duplicate in EditSketchController
     TagsService.createTag(name).then(function(response){
       var newTag = response.data; //gets the new tag as a response from controller create action
       ctrl.tags.push(newTag); //add the new tag to the tags so a checkbox is created
