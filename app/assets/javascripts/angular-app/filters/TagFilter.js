@@ -1,10 +1,22 @@
 function TagFilter(){
-  return function(sketches, tag){
+
+  return function(sketches, tagId){
 
     return sketches.filter(function(sketch){
-      return sketch.tags.includes(tag);
+      
+      if(tagId) {
+        var tagIds = sketch.tags.map(function(tag) {
+          return tag.id;
+        });
+      
+        return tagIds.includes(tagId);
+      } else { //tagId must be null, so return true for all
+        return true;
+      }
+      
     });
   };
+
 }
 
 angular
