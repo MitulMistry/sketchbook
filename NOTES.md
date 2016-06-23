@@ -5,14 +5,18 @@
 -controller errors and status codes
 -fix CSRF protection
 -css/less overriding for navbar
--get messages working
--edit/delete for images
+!!-get messages working
 -devise user updating
 -truncate descriptions
 -PAGINATION
 -bootstrap columns for grid
--form validations
+!!-form validations
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
+-change color of tag button on sketches page when clicked
+-profile route in app.js
+
+Done:
+-edit/delete for images
 
 X-get ui.bootstrap to work
 X-add basic page routes

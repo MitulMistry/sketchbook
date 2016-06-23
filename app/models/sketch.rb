@@ -11,7 +11,7 @@ class Sketch < ActiveRecord::Base
   do_not_validate_attachment_file_type :image
 
   validates :user_id, presence: true
-  validates :title, presence: true, length: { maximum: 300 }
+  validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 2000 }
 
   def image_from_url(url)

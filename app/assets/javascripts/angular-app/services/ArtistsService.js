@@ -16,6 +16,7 @@ function ArtistsService($http, $state, $stateParams) {
       user: { //rails strong params expects user model
         id: artist.id,
         username: artist.username,
+        email: artist.email,
         first_name: artist.first_name,
         last_name: artist.last_name,
         bio: artist.bio

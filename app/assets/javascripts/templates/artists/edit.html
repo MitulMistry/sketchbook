@@ -1,31 +1,46 @@
 <h3 class="page-header">Edit Profile: {{ ctrl.artist.username }}</h3>
 
-<form class="form-horizontal" ng-submit="ctrl.updateArtist()" name="artistForm">
+<form class="form-horizontal" name="artistForm" ng-submit="ctrl.updateArtist()">
   <div class="col-sm-6">
 
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': artistForm.username.$touched && artistForm.username.$invalid }">
       <label for="username" class="control-label">Username</label>
-      <input type="text" ng-model="ctrl.artist.username" class="form-control" id="username" required>
+      <input type="text" ng-model="ctrl.artist.username" class="form-control" id="username" ng-maxlength="40" required>
+      <div class="help-block" ng-messages="artistForm.username.$error" ng-show="artistForm.username.$touched && artistForm.username.$error">
+        <div ng-messages-include="messages.html"></div>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': artistForm.email.$touched && artistForm.email.$invalid }">
       <label for="email" class="control-label">Email</label>
-      <input type="text" ng-model="ctrl.artist.email" class="form-control" id="email" required>
+      <input type="text" ng-model="ctrl.artist.email" class="form-control" name="email" id="email" required>
+      <div class="help-block" ng-messages="artistForm.email.$error" ng-show="artistForm.email.$touched && artistForm.email.$error">
+        <div ng-messages-include="messages.html"></div>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': artistForm.firstName.$touched && artistForm.firstName.$invalid }">
       <label for="first_name" class="control-label">First Name</label>
-      <input type="text" ng-model="ctrl.artist.first_name" class="form-control" id="first_name">
+      <input type="text" ng-model="ctrl.artist.first_name" class="form-control" name="firstName" id="firstName" ng-maxlength="50">
+      <div class="help-block" ng-messages="artistForm.firstName.$error" ng-show="artistForm.firstName.$touched && artistForm.firstName.$error">
+        <div ng-messages-include="messages.html"></div>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="last_name" class="control-label">Last Name</label>
-      <input type="text" ng-model="ctrl.artist.last_name" class="form-control" id="last_name">
+    <div class="form-group" ng-class="{ 'has-error': artistForm.lastName.$touched && artistForm.lastName.$invalid }">
+      <label for="lastName" class="control-label">Last Name</label>
+      <input type="text" ng-model="ctrl.artist.last_name" class="form-control" name="lastName" id="lastName" ng-maxlength="50">
+      <div class="help-block" ng-messages="artistForm.lastName.$error" ng-show="artistForm.lastName.$touched && artistForm.lastName.$error">
+        <div ng-messages-include="messages.html"></div>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error': artistForm.bio.$touched && artistForm.bio.$invalid }">
       <label for="bio" class="control-label">Bio</label>
-      <textarea ng-model="ctrl.artist.bio" id="bio" cols="30" rows="4" class="form-control"></textarea>
+      <textarea ng-model="ctrl.artist.bio" class="form-control" cols="30" rows="4" name="bio" id="bio" ng-maxlength="3000"></textarea>
+      <div class="help-block" ng-messages="artistForm.bio.$error" ng-show="artistForm.bio.$touched && artistForm.bio.$error">
+        <div ng-messages-include="messages.html"></div>
+      </div>
     </div>
 
     <div class="form-group">
