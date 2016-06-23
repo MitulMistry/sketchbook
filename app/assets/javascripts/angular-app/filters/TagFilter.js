@@ -4,12 +4,12 @@ function TagFilter(){
 
     return sketches.filter(function(sketch){
       
-      if(tagId) {
-        var tagIds = sketch.tags.map(function(tag) {
+      if(tagId) { //if the tag id being checked is not null
+        var tagIds = sketch.tags.map(function(tag) { //collect all the tad ids associated with the sketch
           return tag.id;
         });
       
-        return tagIds.includes(tagId);
+        return tagIds.includes(tagId); //check whether the collected tag ids include the tag we're checking for - returns true or false
       } else { //tagId must be null, so return true for all
         return true;
       }
