@@ -28,9 +28,9 @@
           <label for="tagName" class="control-label">New Tag</label>
           
           <div class="input-group">
-            <input type="text" data-ng-model="createTagName" class="form-control" name="tagName" id="tagName">
+            <input type="text" data-ng-model="ctrl.newTagName" class="form-control" maxlength="40" name="tagName" id="tagName">
             <span class="input-group-btn">
-            <button class="btn btn-default" type="button" data-ng-click="ctrl.createTag(createTagName)">Create</button>
+              <button class="btn btn-default" type="button" data-ng-click="ctrl.createTag()" ng-disabled="!ctrl.newTagName || ctrl.newTagName === '' ">Create</button>
             </span>
           </div>
           

@@ -13,8 +13,8 @@ function EditSketchController(sketch, tags, $scope, Upload, $timeout, SketchesSe
     SketchesService.updateSketchWithForm(ctrl.picFile, ctrl.sketch, $scope.errorMsg);
   }
   
-  ctrl.createTag = function(name){ //duplicate in NewSketchController
-    TagsService.createTag(name).then(function(response){
+  ctrl.createTag = function(){ //duplicate in NewSketchController
+    TagsService.createTag(ctrl.newTagName).then(function(response){
       var newTag = response.data; //gets the new tag as a response from controller create action
       ctrl.tags.push(newTag); //add the new tag to the tags so a checkbox is created
       
@@ -22,7 +22,7 @@ function EditSketchController(sketch, tags, $scope, Upload, $timeout, SketchesSe
       
       ctrl.sketch.tags.push(newTag.id); //add the new tag id onto the sketch's tags so it can be automatically checked in checklist-model
       
-      //clear form
+      ctrl.newTagName = '';//clear form
     });
   }
 }

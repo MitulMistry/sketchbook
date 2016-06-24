@@ -6,17 +6,22 @@
 -fix CSRF protection
 -css/less overriding for navbar
 !!-get messages working
--devise user updating
+-devise user updating - change password / delete user
 -truncate descriptions
 -PAGINATION
 -bootstrap columns for grid
-!!-form validations
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
 -change color of tag button on sketches page when clicked
 -profile route in app.js
 
 Done:
 -edit/delete for images
+-form validations
+
+Future:
+-comments + comment nesting?
+  -upvoting/downvoting comments?
+-likes for sketches (popularity?)
 
 X-get ui.bootstrap to work
 X-add basic page routes
