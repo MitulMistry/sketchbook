@@ -21,6 +21,8 @@ function EditSketchController(sketch, tags, $scope, Upload, $timeout, SketchesSe
       if (!ctrl.sketch.tags) ctrl.sketch.tags = []; //if the sketches tags are null (empty), create an empty array so you can push
       
       ctrl.sketch.tags.push(newTag.id); //add the new tag id onto the sketch's tags so it can be automatically checked in checklist-model
+      
+      //clear form
     });
   }
 }

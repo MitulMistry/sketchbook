@@ -6,7 +6,7 @@
         <div class="form-group" ng-class="{ 'has-error': registrationForm.email.$touched && registrationForm.email.$invalid }">
           <label for="email" class="control-label">Email</label>
           <input type="email" class="form-control" ng-model="user.email" name="email" id="email" autofocus required>
-          <div class="help-block" ng-messages="registrationForm.email.$error" ng-show="registrationForm.email.$touched && registrationForm.email.$error">
+          <div class="help-block" ng-messages="registrationForm.email.$error" ng-show="registrationForm.email.$touched && registrationForm.email.$invalid">
             <div ng-messages-include="messages.html"></div>
           </div>
         </div>
@@ -14,7 +14,7 @@
         <div class="form-group" ng-class="{ 'has-error': registrationForm.username.$touched && registrationForm.username.$invalid }">
           <label for="username" class="control-label">Username</label>
           <input type="text" class="form-control" ng-model="user.username" name="username" id="username" ng-minlength="3" ng-maxlength="25" required>
-          <div class="help-block" ng-messages="registrationForm.username.$error" ng-show="registrationForm.username.$touched && registrationForm.username.$error">
+          <div class="help-block" ng-messages="registrationForm.username.$error" ng-show="registrationForm.username.$touched && registrationForm.username.$invalid">
             <div ng-messages-include="messages.html"></div>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="form-group" ng-class="{ 'has-error': registrationForm.password.$touched && registrationForm.password.$invalid }">
           <label for="password" class="control-label">Password</label>
           <input type="password" class="form-control" ng-model="user.password" name="password" id="password" ng-minlength="8" ng-maxlength="40" required>
-          <div class="help-block" ng-messages="registrationForm.password.$error" ng-show="registrationForm.password.$touched && registrationForm.password.$error">
+          <div class="help-block" ng-messages="registrationForm.password.$error" ng-show="registrationForm.password.$touched && registrationForm.password.$invalid">
             <div ng-messages-include="messages.html"></div>
           </div>
         </div>

@@ -6,7 +6,7 @@
         <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
           <label for="email" class="control-label">email</label>
           <input type="email" class="form-control" ng-model="user.email" name="email" id="email" autofocus required>
-          <div class="help-block" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched && loginForm.email.$error">
+          <div class="help-block" ng-messages="loginForm.email.$error" ng-show="loginForm.email.$touched && loginForm.email.$invalid">
             <div ng-messages-include="messages.html"></div>
           </div>
         </div>
@@ -14,7 +14,7 @@
         <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
           <label for="password" class="control-label">Password</label>
           <input type="password" class="form-control" ng-model="user.password" name="password" id="password" required>
-          <div class="help-block" ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched && loginForm.password.$error">
+          <div class="help-block" ng-messages="loginForm.password.$error" ng-show="loginForm.password.$touched && loginForm.password.$invalid">
             <div ng-messages-include="messages.html"></div>
           </div>
         </div>
