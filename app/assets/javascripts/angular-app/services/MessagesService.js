@@ -1,6 +1,6 @@
 function MessagesService(Flash) {
   
-  var duration = 3000;
+  var duration = 5000;
   
   this.success = function(message) {
     Flash.create('success', message, duration);
@@ -18,12 +18,15 @@ function MessagesService(Flash) {
     Flash.create('danger', message, duration);
   }
   
-  this.displayError = function(errorObj) { //receives array of error messages from rails: @model.errors.full_messages, or Devise errors
-  
-  for (var error in errorObj) {
-    
-  }
-    this.danger(errorObj);
+  this.displayError = function(response) {
+    if (response.data.error) { //devise error
+      this.danger(response.data.error)
+      
+    } else if (response.data.errors) { //receives array of error messages from rails: @model.errors.full_messages, or Devise errors
+      for (var i = 0; i < response.data.errors.length; i++) {
+        this.danger(response.data.errors[i]);
+      }
+    }
   }
 }
 

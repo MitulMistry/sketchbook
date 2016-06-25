@@ -7,7 +7,7 @@ function AuthController($scope, $state, Auth, MessagesService) {
       $state.go('home.sketches')
       
     }, function(response) { //error
-      MessagesService.displayError(response.data.errors);
+      MessagesService.displayError(response);
     });
   };
 
@@ -17,7 +17,7 @@ function AuthController($scope, $state, Auth, MessagesService) {
       $state.go('home.sketches')
       
     }, function(response) { //error
-      MessagesService.displayError(response.data.errors);
+      MessagesService.displayError(response);
     });
   };
 

@@ -37,7 +37,7 @@ function ArtistsService($http, $state, $stateParams, MessagesService) {
       MessagesService.success('Profile updated.');
       
     }, function errorCallback(response) { //error
-      MessagesService.displayError(response.data.errors);
+      MessagesService.displayError(response);
     });
 
   }

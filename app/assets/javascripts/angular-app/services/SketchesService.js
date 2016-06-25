@@ -1,4 +1,4 @@
-function SketchesService($http, $state, Upload, $timeout) {
+function SketchesService($http, $state, Upload, $timeout, MessagesService) {
   
   this.getSketches = function () { //get all the sketches from the serialized controller action
     return $http.get('/sketches.json');
@@ -29,10 +29,12 @@ function SketchesService($http, $state, Upload, $timeout) {
       });
 
       $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
-      //message?
+      MessagesService.success('Sketch created.');
+      
     }, function (response) { //error
       if (response.status > 0)
       errorMsg = response.status + ': ' + response.data; //$scope.errorMsg - not sure if this works being in the service
+      MessagesService.displayError(response);
     }, function (evt) { //progress
       // Math.min is to fix IE which reports 200% sometimes
       file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -64,10 +66,12 @@ function SketchesService($http, $state, Upload, $timeout) {
         });
   
         $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
-        //message?
+        MessagesService.success('Sketch updated.');
+        
       }, function (response) { //error
         if (response.status > 0)
         errorMsg = response.status + ': ' + response.data; //$scope.errorMsg - not sure if this works being in the service
+        MessagesService.displayError(response);
       }, function (evt) { //progress
         // Math.min is to fix IE which reports 200% sometimes
         file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
@@ -85,7 +89,9 @@ function SketchesService($http, $state, Upload, $timeout) {
         }
       }).then(function(response) {
         $state.go('home.sketch', { id: response.data.id }); //on success, rails controller sends back json data of the created sketch, then redirect based on that id
-        //message?
+        MessagesService.success('Sketch updated.');
+      }, function (response) { //error
+        MessagesService.displayError(response);
       });
       
     }
@@ -95,11 +101,9 @@ function SketchesService($http, $state, Upload, $timeout) {
     $http({
       method: 'DELETE',
       url: '/sketches/' + id
-    }).then(function successCallback(response) { //success
+    }).then(function(response) { //success
       $state.go('home');
-      //message
-    }, function errorCallback(response) { //error
-      //message
+      MessagesService.success('Sketch deleted.');
     });
   }
 }
