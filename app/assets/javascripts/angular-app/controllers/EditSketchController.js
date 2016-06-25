@@ -22,7 +22,7 @@ function EditSketchController(sketch, tags, $scope, Upload, $timeout, SketchesSe
       
       ctrl.sketch.tags.push(newTag.id); //add the new tag id onto the sketch's tags so it can be automatically checked in checklist-model
       
-      ctrl.newTagName = '';//clear form
+      ctrl.newTagName = ''; //clear form
     });
   }
 }

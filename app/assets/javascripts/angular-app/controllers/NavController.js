@@ -1,4 +1,4 @@
-function NavController($scope, $state, Auth) { //Message
+function NavController($scope, $state, Auth, MessagesService) {
   var ctrl = this;
 
   $scope.signedIn = Auth.isAuthenticated; //used to check if user is signed in
@@ -21,7 +21,7 @@ function NavController($scope, $state, Auth) { //Message
 
   $scope.$on('devise:logout', function (event, user){
     $scope.user = {};
-    //Message.success("Signed out successfully.");
+    MessagesService.success('Signed out successfully.');
     $state.go('home');
   });
 }

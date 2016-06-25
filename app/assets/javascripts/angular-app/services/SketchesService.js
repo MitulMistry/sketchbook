@@ -1,4 +1,5 @@
 function SketchesService($http, $state, Upload, $timeout) {
+  
   this.getSketches = function () { //get all the sketches from the serialized controller action
     return $http.get('/sketches.json');
   }

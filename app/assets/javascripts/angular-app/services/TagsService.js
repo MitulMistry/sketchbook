@@ -1,4 +1,5 @@
 function TagsService($http) {
+  
   this.getTags = function () { //get all the tags from the serialized controller action
     return $http.get('/tags.json');
   }
