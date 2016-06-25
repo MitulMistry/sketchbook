@@ -3,6 +3,7 @@
 -recheck authentications
 -image validations in sketch model
 -fix CSRF protection
+-fix error of automatically trying to sign in on page load
 -css/less overriding for navbar
 -devise user updating - change password / delete user
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
