@@ -5,23 +5,32 @@
 -controller errors and status codes
 -fix CSRF protection
 -css/less overriding for navbar
-!!-get messages working
 -devise user updating - change password / delete user
--truncate descriptions
 -PAGINATION
 -bootstrap columns for grid
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
--change color of tag button on sketches page when clicked
 -profile route in app.js
 
 Done:
 -edit/delete for images
 -form validations
+-get messages working
+-truncate descriptions (limitTo)
+-change color of tag button on sketches page when clicked
 
 Future:
+-front end design + branding, art direction
+-animated flash messages
+-navbar scaling - responsive, hamburger button
+-more repsonsive design
+-front end animation
 -comments + comment nesting?
   -upvoting/downvoting comments?
 -likes for sketches (popularity?)
+-artist profile images - avatars / page headers like twitter?
+-back end api options - e.g. get sketch with comments or without comments - query string?
+-use truncate.js for truncating text instead of limitTo?
+
 
 X-get ui.bootstrap to work
 X-add basic page routes

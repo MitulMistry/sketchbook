@@ -18,3 +18,5 @@
 /log/*
 !/log/.keep
 /tmp
+
+/spring-1000
