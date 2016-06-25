@@ -24,7 +24,7 @@ class TagsController < ApplicationController
     if @tag.update(tag_params)
       render json: @tag
     else
-      render json: { errors: @tag.errors.full_messages }
+      render json: { errors: @tag.errors.full_messages }, status: 422
     end
   end
 
