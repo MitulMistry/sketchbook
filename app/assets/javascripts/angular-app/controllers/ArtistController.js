@@ -3,6 +3,8 @@ function ArtistController(artist, user, sketches) { //artist, user, and sketches
 
   ctrl.artist = artist.data;
   ctrl.sketches = sketches.data;
+  
+  ctrl.pageSize = 6;
 
   ctrl.ifOwner = function() {
     if (user == null) {

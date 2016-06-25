@@ -7,6 +7,10 @@
 
 <div class="col-md-10 sketches">
   <div class="row">
-    <sketch ng-repeat="sketch in ctrl.sketches | filter:ctrl.search | tagFilter:ctrl.currentTagId" data="sketch"></sketch>
+    <sketch dir-paginate="sketch in ctrl.sketches | filter:ctrl.search | tagFilter:ctrl.currentTagId | itemsPerPage: ctrl.pageSize" data="sketch"></sketch>
+  </div>
+  
+  <div class="row">
+    <dir-pagination-controls></dir-pagination-controls>
   </div>
 </div>

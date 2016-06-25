@@ -8,7 +8,8 @@ angular
     'ngMessages', //directive to show/hide messages
     'ngFlash', //flash message for AngularJS and Bootstrap
     'ngFileUpload', //angular directive to upload files
-    'checklist-model' //angular checklist-model for checkbox arrays for forms
+    'checklist-model', //angular checklist-model for checkbox arrays for forms
+    'angularUtils.directives.dirPagination' //angular-utils-paginations
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider

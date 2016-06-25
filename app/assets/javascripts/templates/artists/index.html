@@ -4,6 +4,10 @@
 
 <div class="col-md-10 artists">
   <div class="row">
-    <artist ng-repeat="artist in ctrl.artists | filter:ctrl.search" data="artist"></artist>
+    <artist dir-paginate="artist in ctrl.artists | filter:ctrl.search | itemsPerPage: ctrl.pageSize" data="artist"></artist>
+  </div>
+  
+  <div class="row">
+    <dir-pagination-controls></dir-pagination-controls>
   </div>
 </div>

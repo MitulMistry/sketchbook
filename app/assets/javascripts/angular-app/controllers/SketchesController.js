@@ -5,6 +5,8 @@ function SketchesController(sketches, tags) { //sketches and tags are injected f
   ctrl.tags = tags.data;
   
   ctrl.currentTagId = null;
+  
+  ctrl.pageSize = 9;
 }
 
 angular

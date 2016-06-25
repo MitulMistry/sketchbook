@@ -22,4 +22,5 @@
 //= require angular-flash-alert
 //= require ng-file-upload
 //= require angular-checklist-model
+//= require angular-utils-pagination
 //= require_tree .
