@@ -24,6 +24,30 @@ label {
   margin: 0px 4px 4px 0px;
 }
 
+// masonry style columns -----
+// http://www.bootply.com/118335
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.row {
+ -moz-column-width: 18em;
+ -webkit-column-width: 18em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+  
+}
+
+.item {
+ display: inline-block;
+ padding:  .25rem;
+ width:  100%; 
+}
+
+.well {
+ position:relative;
+ display: block;
+}
+
 // ng-file-upload styles -----
 .thumb {
     width: 24px;

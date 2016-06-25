@@ -6,7 +6,6 @@
 -css/less overriding for navbar
 -devise user updating - change password / delete user
 -PAGINATION
--bootstrap columns for grid
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
 -profile route in app.js
 -don't show tags in sketches screen if tag has no sketches
@@ -18,8 +17,10 @@ Done:
 -truncate descriptions (limitTo)
 -change color of tag button on sketches page when clicked
 -controller errors and status codes
+-bootstrap columns for grid (masonry style)
 
 Future:
+-switch to bootstrap 4 styling
 -front end design + branding, art direction
 -animated flash messages
 -navbar scaling - responsive, hamburger button

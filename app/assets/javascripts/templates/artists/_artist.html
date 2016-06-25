@@ -1,4 +1,4 @@
-<div class="artist col-md-4">
+<div class="artist item">
   <h4><a href ui-sref="home.artist({ id: artist.data.id })">{{ artist.data.username }}</a></h4>
   <p ng-if="artist.data.bio && artist.data.bio.length > 200">{{ artist.data.bio | limitTo : 200 }}...</p>
   <p ng-if="artist.data.bio && artist.data.bio.length <= 200">{{ artist.data.bio }}</p>

@@ -3,5 +3,7 @@
 </div>
 
 <div class="col-md-10 artists">
-  <artist ng-repeat="artist in ctrl.artists | filter:ctrl.search" data="artist"></artist>
+  <div class="row">
+    <artist ng-repeat="artist in ctrl.artists | filter:ctrl.search" data="artist"></artist>
+  </div>
 </div>

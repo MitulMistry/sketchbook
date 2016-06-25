@@ -6,5 +6,7 @@
 </div>
 
 <div class="col-md-10 sketches">
-  <sketch ng-repeat="sketch in ctrl.sketches | filter:ctrl.search | tagFilter:ctrl.currentTagId" data="sketch"></sketch>
+  <div class="row">
+    <sketch ng-repeat="sketch in ctrl.sketches | filter:ctrl.search | tagFilter:ctrl.currentTagId" data="sketch"></sketch>
+  </div>
 </div>
