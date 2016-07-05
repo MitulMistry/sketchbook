@@ -7,7 +7,8 @@ function NavController($scope, $state, Auth, MessagesService) {
     Auth.logout();
   }
 
-  Auth.currentUser().then(function (user){
+  //this occurs on a hard page reload, or visiting site for first time
+  Auth.currentUser().then(function (user){ //promise results in a 401 error in console if not logged in, but not really a problem
     $scope.user = user;
   });
 

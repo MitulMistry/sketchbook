@@ -1,14 +1,14 @@
 **To Do:**
--add angular route authentication for editArtist and editSketch
--recheck authentications
--image validations in sketch model
--fix CSRF protection
--fix error of automatically trying to sign in on page load
+!-add angular route authentication for editArtist and editSketch
+!-recheck authentications
+!!-image validations in sketch model
+!!-fix CSRF protection
 -css/less overriding for navbar
 -devise user updating - change password / delete user
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
 -profile route in app.js
--don't show tags in sketches screen if tag has no sketches
+!-don't show tags in sketches screen if tag has no sketches
+-401 error from NavController Auth.currentUser() promise if not logged in, but doesn't cause a problem
 
 Done:
 -edit/delete for images
@@ -21,6 +21,7 @@ Done:
 -pagination
 
 Future:
+-write back end and front end tasks
 -refactor code - clean up - use $scope more instead of so many controller variables?
 -switch to bootstrap 4 styling
 -front end design + branding, art direction
