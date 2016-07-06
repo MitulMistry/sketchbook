@@ -20,12 +20,22 @@ end
 15.times do
   user = User.order("RANDOM()").first
 
-  sketch = user.sketches.create(
+  sketch = user.sketches.build(
     title: Faker::Book.title,
     description: Faker::Lorem.paragraph
   )
+  
+  rand = Faker::Number.between(1, 3)
 
-  sketch.image_from_url("http://loremflickr.com/800/600/sketch")
+  if rand == 1
+    sketch.image_from_url("http://loremflickr.com/800/600/sketch")
+  elsif rand == 2
+    sketch.image_from_url("http://loremflickr.com/800/1100/sketch")
+  else
+    sketch.image_from_url("http://loremflickr.com/1000/600/sketch")
+  end
+  
+  sketch.save
 end
 
 6.times { Tag.create(name: Faker::Lorem.word) }

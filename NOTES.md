@@ -1,7 +1,6 @@
 **To Do:**
 !-add angular route authentication for editArtist and editSketch
 !-recheck authentications
-!!-image validations in sketch model
 !!-fix CSRF protection
 -css/less overriding for navbar
 -devise user updating - change password / delete user
@@ -19,6 +18,7 @@ Done:
 -controller errors and status codes
 -bootstrap columns for grid (masonry style)
 -pagination
+-image validations in sketch model
 
 Future:
 -write back end and front end tasks
