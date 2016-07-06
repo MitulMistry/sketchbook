@@ -1,7 +1,7 @@
 **To Do:**
 !-add angular route authentication for editArtist and editSketch
 !-recheck authentications
-!!-fix CSRF protection
+-CSRF works with angular_rails_csrf gem, but if you logout then try to register again, you get an authenticity token error
 -css/less overriding for navbar
 -devise user updating - change password / delete user
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
@@ -19,9 +19,10 @@ Done:
 -bootstrap columns for grid (masonry style)
 -pagination
 -image validations in sketch model
+-fix CSRF protection
 
 Future:
--write back end and front end tasks
+-write back end and front end tests
 -refactor code - clean up - use $scope more instead of so many controller variables?
 -switch to bootstrap 4 styling
 -front end design + branding, art direction

@@ -38,6 +38,7 @@ gem 'paperclip', '~> 5.0.0.beta2'
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
 gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
+gem 'angular_rails_csrf' #allows csrf for angular
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
