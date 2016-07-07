@@ -68,6 +68,27 @@ angular
           }
         }
       })
+      .state('home.profile', {
+        url: 'profile',
+        templateUrl: 'artists/show.html',
+        controller: 'ArtistController as ctrl',
+        resolve: { //execute this code before the template is rendered
+          artist: function (Auth, ArtistsService) {
+            return ArtistsService.getArtist(Auth._currentUser.id); //load individual artist
+          },
+          sketches: function(Auth, ArtistsService) {
+            return ArtistsService.getArtistSketches(Auth._currentUser.id); //load the sketches of the artist
+          },
+          user: function (Auth) {
+            return Auth._currentUser;
+          }
+        },
+        onEnter: function($state, Auth, $stateParams) {
+          if (!Auth._currentUser) {
+            $state.go('home');
+          }
+        }
+      })
       .state('home.editArtist', {
         url: 'artists/:id/edit',
         templateUrl: 'artists/edit.html',

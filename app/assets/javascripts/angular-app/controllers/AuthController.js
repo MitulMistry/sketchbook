@@ -3,8 +3,8 @@ function AuthController($scope, $state, Auth, MessagesService) {
 
   $scope.login = function() {
     Auth.login($scope.user).then(function(){
-      MessagesService.success('Signed in successfully.')
-      $state.go('home.sketches')
+      MessagesService.success('Signed in successfully.');
+      $state.go('home.profile');
       
     }, function(response) { //error
       MessagesService.displayError(response);
@@ -14,7 +14,7 @@ function AuthController($scope, $state, Auth, MessagesService) {
   $scope.register = function() {
     Auth.register($scope.user).then(function(){
       MessagesService.success('Signed up successfully.');
-      $state.go('home.sketches')
+      $state.go('home.profile');
       
     }, function(response) { //error
       MessagesService.displayError(response);

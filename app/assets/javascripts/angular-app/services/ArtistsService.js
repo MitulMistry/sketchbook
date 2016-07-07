@@ -1,4 +1,4 @@
-function ArtistsService($http, $state, $stateParams, MessagesService) {
+function ArtistsService($http, $state, MessagesService) {
   
   this.getArtists = function () { //get all the artists from the serialized controller action
     return $http.get('/artists.json');
@@ -33,7 +33,7 @@ function ArtistsService($http, $state, $stateParams, MessagesService) {
         "Content-Type": "application/json"
       }
     }).then(function successCallback(response) { //success
-      $state.go('home.artist', {id: $stateParams.id }); //go back to profile page
+      $state.go('home.profile');
       MessagesService.success('Profile updated.');
       
     }, function errorCallback(response) { //error
