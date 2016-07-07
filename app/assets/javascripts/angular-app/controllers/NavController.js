@@ -1,4 +1,4 @@
-function NavController($scope, $state, Auth, MessagesService) {
+function NavController($scope, $state, Auth, MessagesService, $window) {
   var ctrl = this;
 
   $scope.signedIn = Auth.isAuthenticated; //used to check if user is signed in
@@ -24,6 +24,7 @@ function NavController($scope, $state, Auth, MessagesService) {
     $scope.user = {};
     MessagesService.success('Signed out successfully.');
     $state.go('home');
+    $window.location.reload(); //hard reload - temporary fix for csrf - authenticity token problem if logging in again or registering after logging out
   });
 }
 
