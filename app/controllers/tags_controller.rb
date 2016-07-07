@@ -6,6 +6,11 @@ class TagsController < ApplicationController
     @tags = Tag.all
     render json: @tags
   end
+  
+  def non_empty
+    @tags = Tag.non_empty
+    render json: @tags
+  end
 
   def show
     render json: @tag.sketches

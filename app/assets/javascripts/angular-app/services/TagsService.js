@@ -3,6 +3,10 @@ function TagsService($http) {
   this.getTags = function () { //get all the tags from the serialized controller action
     return $http.get('/tags.json');
   }
+  
+  this.getNonEmptyTags = function () { //get only the tags that have sketches associated with them
+    return $http.get('/tags/non_empty.json');
+  }
 
   this.getTag = function(id) { //get the tag by id from the serialized controller action
     return $http.get('/tags/' + id + '.json');

@@ -109,7 +109,7 @@ angular
             return SketchesService.getSketches();
           },
           tags: function(TagsService) {
-            return TagsService.getTags();
+            return TagsService.getNonEmptyTags();
           }
         }
       })

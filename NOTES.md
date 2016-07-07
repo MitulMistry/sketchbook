@@ -1,12 +1,11 @@
 **To Do:**
 !-add angular route authentication for editArtist and editSketch
 !-recheck authentications
--CSRF works with angular_rails_csrf gem, but if you logout then try to register again, you get an authenticity token error
+-CSRF works with angular_rails_csrf gem, but if you logout then try to register again, you get an authenticity token error - could do a hard refresh on logout as a workaround
 -css/less overriding for navbar
 -devise user updating - change password / delete user
 -sketch creation - tag_ids not being sent in proper format from SketchesService, temporarily fixed with back end sketches_controller check_tag_ids method
 -profile route in app.js
-!-don't show tags in sketches screen if tag has no sketches
 -401 error from NavController Auth.currentUser() promise if not logged in, but doesn't cause a problem
 
 Done:
@@ -20,6 +19,7 @@ Done:
 -pagination
 -image validations in sketch model
 -fix CSRF protection
+-don't show tags in sketches screen if tag has no sketches
 
 Future:
 -write back end and front end tests
