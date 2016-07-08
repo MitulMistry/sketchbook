@@ -1,4 +1,4 @@
-function TagsService($http) {
+function TagsService($http, $state, MessagesService, Auth) {
   
   this.getTags = function () { //get all the tags from the serialized controller action
     return $http.get('/tags.json');
@@ -13,21 +13,26 @@ function TagsService($http) {
   }
 
   this.createTag = function(name) {
-    var data = {
-      tag: { //rails strong params expects tag model
-        name: name
-      }
-    };
-
-    return $http({
-      method: 'POST',
-      dataType: 'json',
-      url: '/tags',
-      data: data,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
+    if (Auth.isAuthenticated()) {
+      var data = {
+        tag: { //rails strong params expects tag model
+          name: name
+        }
+      };
+  
+      return $http({
+        method: 'POST',
+        dataType: 'json',
+        url: '/tags',
+        data: data,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    } else {
+      MessagesService.danger('You do not have permissions.');
+      $state.go('home');
+    }
   }
 }
 
