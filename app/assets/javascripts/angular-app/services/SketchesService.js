@@ -50,15 +50,15 @@ function SketchesService($http, $state, Upload, $timeout, MessagesService, Auth)
     if (sketch.user.id === Auth._currentUser.id) { //check ownership
       var data = {
         'sketch': { //structured to match rails strong params in sketches controller
+        description: sketch.description, //description is optional, so okay if it's empty
+        tag_ids: sketch.tags
         }
       };
       
-      if (file) data.sketch.image = file;
-      if (sketch.title) data.sketch.title = sketch.title;
-      if (sketch.description) data.sketch.description = sketch.description;
-      if (sketch.tags) data.sketch.tag_ids = sketch.tags;
-      
+      if (sketch.title) data.sketch.title = sketch.title; //only update title if there's something to update with
+
       if (file) {
+        data.sketch.image = file;
         
         file.upload = Upload.upload({
           url: '/sketches/' + sketch.id,

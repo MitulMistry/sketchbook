@@ -5,7 +5,7 @@ function TagFilter(){
     return sketches.filter(function(sketch){
       
       if(tagId) { //if the tag id being checked is not null
-        var tagIds = sketch.tags.map(function(tag) { //collect all the tad ids associated with the sketch
+        var tagIds = sketch.tags.map(function(tag) { //collect all the tag ids associated with the sketch
           return tag.id;
         });
       

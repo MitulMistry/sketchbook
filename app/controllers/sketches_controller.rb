@@ -2,6 +2,7 @@ class SketchesController < ApplicationController
   before_action :find_sketch, only: [:show, :update, :destroy]
   before_action :authorize_ownership, only: [:update, :destroy]
   before_action :check_tag_ids, only: [:create, :update] #check that tag_ids are in the proper format
+  before_action :check_tag_ids_if_nil, only: :update
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
   def index
@@ -57,5 +58,10 @@ class SketchesController < ApplicationController
     if params[:sketch][:tag_ids].is_a?(Hash) #if it looks like this: "tag_ids"=>{"0"=>"2", "1"=>"4"}}
       params[:sketch][:tag_ids] = params[:sketch][:tag_ids].values #then set it to this: "tag_ids"=>["2", "4"]
     end
+  end
+  
+  def check_tag_ids_if_nil #temporarily corrects issue where removing tags makes tag_ids = nil by Rails
+    #Value for params[:sketch][:tag_ids] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
+    params[:sketch][:tag_ids] = [] if params[:sketch][:tag_ids].nil?
   end
 end
