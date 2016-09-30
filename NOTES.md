@@ -9,6 +9,12 @@
 -401 error from NavController Auth.currentUser() promise if not logged in, but doesn't cause a problem
 -displaying errors doesn't always work
 
+Avi:
+-encapsulate #find_artist in Rails artists_controller - rename?
+  current_user.is_owner?(@artist) instead of if @artist != current_user
+-in Rails sketches_controller, move #check_tag_ids_if_hash and #check_tag_ids_if_nil to model, create some sort of custom update_tag_ids= setter method for [:sketch][:update_tag_ids]
+-set Angular SketchesService create and update methods as callbacks (like: return $http.get('/sketches.json');), then do .then(function(response){ $state.go(...) }); under NewSketchController createSketch method, etc.
+
 Done:
 -edit/delete for images
 -form validations
