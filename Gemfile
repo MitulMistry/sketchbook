@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'faker'
 gem 'active_model_serializers'
-gem 'paperclip', '~> 5.0.0.beta2'
+gem 'paperclip', '~> 5.1'
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
 gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
