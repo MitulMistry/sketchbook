@@ -32,21 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
-gem 'faker'
 gem 'active_model_serializers'
 gem 'paperclip', '~> 5.1'
+gem 'faker' #used fo production seeding as well as tests
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
 gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
 gem 'angular_rails_csrf' #allows csrf for angular
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'rspec-rails'
-  gem 'pry'
-  #gem 'capybara'
-end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -54,4 +46,20 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry'
+end
+
+group :test do
+  # gem 'capybara'
+  gem 'database_cleaner'
+  # gem 'launchy'
+  # gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
