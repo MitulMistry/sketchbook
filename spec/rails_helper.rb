@@ -60,8 +60,9 @@ RSpec.configure do |config|
 
   # Include to enable Devise authentication in tests
   config.include Devise::Test::ControllerHelpers, type: :controller
+end
 
-  Shoulda::Matchers.configure do |config|
+Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     # Choose a test framework:
     with.test_framework :rspec
