@@ -30,8 +30,12 @@ RSpec.describe Sketch, type: :model do
 
   describe "image from url" do
     it "creates an image from a url" do
-      pending "implement"
-      raise "fail"
+      sketch = build(:sketch)
+      sketch.image = nil
+      sketch.image_from_url(Faker::LoremPixel.image("300x200"))
+      sketch.save
+
+      expect(sketch).to be_valid
     end
   end
 end
