@@ -17,15 +17,21 @@ RSpec.describe Tag, type: :model do
     end
   end
 
-  describe "non-empty" do
+  describe "#non_empty" do
     it "returns an array of all tags that have at least 1 associated sketch" do
-      pending "implement"
-      raise "fail"
+      tag1 = create(:tag_with_sketch)
+      tag2 = create(:tag)
+
+      tags = Tag.non_empty
+      expect(tags).to include(tag1)
+      expect(tags).not_to include(tag2)
     end
 
     it "doesn't return duplicate tags" do
-      pending "implement"
-      raise "fail"
+      tag1 = create(:tag_with_sketch)
+      tag1.sketches << create(:sketch)
+
+      expect(Tag.non_empty).to eq [tag1]
     end
   end
 end
