@@ -14,8 +14,13 @@ RSpec.describe Sketch, type: :model do
     context "required validations" do
       it { should validate_presence_of(:title) }
       it { should validate_length_of(:title).is_at_most(100) }
-      #validate has_attached_file
-      #validate attachment image - file type, attachment size
+
+      it { should have_attached_file(:image) }
+      it { should validate_attachment_presence(:image) }
+      it { should validate_attachment_content_type(:image).
+        allowing("image/jpeg", "image/jpg", "image/gif", "image/png").
+        rejecting("text/plain", "text/xml") }
+      it { should validate_attachment_size(:image).less_than(5.megabytes) }
     end
 
     context "other validations" do
