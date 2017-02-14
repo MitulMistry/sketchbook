@@ -17,7 +17,7 @@ RSpec.describe Tag, type: :model do
     end
   end
 
-  describe "#non_empty" do
+  describe "sort by non-empty tags" do
     it "returns an array of all tags that have at least 1 associated sketch" do
       tag1 = create(:tag_with_sketch)
       tag2 = create(:tag)
