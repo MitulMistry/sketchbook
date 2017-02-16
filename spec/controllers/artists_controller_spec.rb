@@ -14,12 +14,9 @@ RSpec.describe ArtistsController, type: :controller do
         expect(assigns(:artists)).to include(@artist1, @artist2, @artist3) #assigns(:artists) checks @artists in the controller
       end
 
-      # it "renders user serializer" do
-      #   get :index
-      #   assert_serializer "UserSerializer"
-      # end
-
       it "returns JSON-formatted content" do
+        expect(response).to have_http_status(:success)
+
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["username"] == @artist1.username }).to be true #check if any of the user hashes contains the specified username
         expect(json.any? { |hash| hash["username"] == @artist2.username }).to be true #can also be written: expect(json).to include(include("username" => @artist2.username))
@@ -38,7 +35,9 @@ RSpec.describe ArtistsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        json = JSON.parse(response.body)
+        expect(response).to have_http_status(:success)
+
+        json = JSON.parse(response.body) #hash
         expect(json["username"]).to eq @artist.username
       end
     end
@@ -57,6 +56,8 @@ RSpec.describe ArtistsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
+        expect(response).to have_http_status(:success)
+
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["title"] == @sketch1.title }).to be true #check if any of the sketch hashes contains the specified title
         expect(json.any? { |hash| hash["title"] == @sketch2.title }).to be true #can also be written: expect(json).to include(include("title" => @sketch2.title))
@@ -67,13 +68,65 @@ RSpec.describe ArtistsController, type: :controller do
 
   shared_examples_for "full access to owned artists" do #define @user for these tests
     describe "PATCH #update" do
+      context "with valid attributes" do
+        before :each do
+          patch :update, id: @user, user: attributes_for(:user, bio: "Updated bio")
+        end
 
+        it "locates the requested artist" do
+          expect(assigns(:artist)).to eq @user
+        end
+
+        it "changes the artist's attributes" do
+          @user.reload #use reload to check that the changes are actually persisted
+          expect(@user.bio).to eq "Updated bio"
+        end
+
+        it "returns the updated artist as a JSON response" do
+          expect(response).to have_http_status(:success)
+
+          json = JSON.parse(response.body)
+          expect(json["id"]).to eq @user.id
+          expect(json["bio"]).to eq "Updated bio"
+        end
+      end
+
+      context "with invalid attributes" do
+        it "does not change the artist's attributes" do
+          first_name = @user.first_name
+          patch :update, id: @user, user: attributes_for(:invalid_user)
+          @user.reload
+          expect(@user.first_name).to eq first_name
+        end
+
+        it "returns error as JSON response" do
+          patch :update, id: @user, user: attributes_for(:invalid_user)
+          expect(response).to have_http_status(422)
+
+          json = JSON.parse(response.body)
+          expect(json).to include("errors")
+        end
+      end
     end
   end
 
   shared_examples_for "no modification access to non-owned artists" do #define @user for these tests
     describe "PATCH #update" do
+      before :each do
+        @artist2 = create(:user)
+      end
 
+      it "does not change the artist's attributes" do
+        first_name = @artist2.first_name
+        patch :update, id: @artist2, user: attributes_for(:user)
+        @artist2.reload
+        expect(@artist2.first_name).to eq first_name
+      end
+
+      it "returns 403 forbidden" do
+        patch :update, id: @artist2, user: attributes_for(:user)
+        expect(response).to have_http_status(403)
+      end
     end
   end
 
@@ -90,6 +143,5 @@ RSpec.describe ArtistsController, type: :controller do
 
   describe "guest access" do
     it_behaves_like "public access to artists"
-
   end
 end

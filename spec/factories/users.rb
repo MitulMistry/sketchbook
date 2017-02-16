@@ -6,5 +6,9 @@ FactoryGirl.define do
     last_name { Faker::Name.last_name }
     password { Faker::Internet.password(8, 20) }
     bio { Faker::Lorem.paragraph }
+
+    factory :invalid_user do #(inherited) child factory
+      first_name { Faker::Lorem.characters(51) }
+    end
   end
 end
