@@ -143,5 +143,12 @@ RSpec.describe ArtistsController, type: :controller do
 
   describe "guest access" do
     it_behaves_like "public access to artists"
+
+    describe "PATCH #update" do
+      it "requires login" do
+        patch :artist, id: create(:user), tag: attributes_for(:user)
+        expect(response).to require_login # custom matcher under support/matchers/require_login.rb
+      end
+    end
   end
 end
