@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    username { Faker::Internet.user_name(nil, %w(_ -)) }
+    sequence(:username) { |n| Faker::Internet.user_name(nil, %w(_ -)) + n.to_s } #iterate to ensure uniqueness 
     email { Faker::Internet.email }
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
