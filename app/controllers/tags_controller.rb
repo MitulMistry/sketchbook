@@ -1,12 +1,13 @@
 class TagsController < ApplicationController
   before_action :find_tag, only: [:show, :update, :destroy]
+  before_action :authorize_ownership, only: [:update, :destroy]
 
   #uses ActiveModel Serializer to implicitly serialize model (render json), in app/serializers
   def index
     @tags = Tag.all
     render json: @tags
   end
-  
+
   def non_empty
     @tags = Tag.non_empty
     render json: @tags
@@ -43,6 +44,11 @@ class TagsController < ApplicationController
 
   def find_tag
     @tag = Tag.find(params[:id])
+  end
+
+  def authorize_ownership #reject updating and destroying tags (for now) since not owned by users
+    render nothing: true, status: 403 #403 forbidden
+    return #guard clause
   end
 
   def tag_params #strong params
