@@ -146,7 +146,7 @@ RSpec.describe ArtistsController, type: :controller do
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :artist, id: create(:user), tag: attributes_for(:user)
+        patch :update, id: create(:user), tag: attributes_for(:user)
         expect(response).to require_login # custom matcher under support/matchers/require_login.rb
       end
     end

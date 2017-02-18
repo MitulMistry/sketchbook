@@ -238,7 +238,7 @@ RSpec.describe TagsController, type: :controller do
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :tag, id: create(:tag), tag: attributes_for(:tag)
+        patch :update, id: create(:tag), tag: attributes_for(:tag)
         expect(response).to require_login
       end
     end

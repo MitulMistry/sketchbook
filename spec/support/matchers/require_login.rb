@@ -1,3 +1,4 @@
+#custom matcher - included in rails_helper.rb: Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 RSpec::Matchers.define :require_login do |expected|
   match do |actual|
     expect(actual).to redirect_to Rails.application.routes.url_helpers.new_user_session_path
