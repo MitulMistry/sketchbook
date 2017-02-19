@@ -153,7 +153,7 @@ RSpec.describe TagsController, type: :controller do
           patch :update, id: @tag, tag: attributes_for(:invalid_tag)
         end
 
-        it "does not change the artist's attributes" do
+        it "does not change the tag's attributes" do
           @tag.reload
           expect(@tag.name).to eq "Test Name"
         end
@@ -180,6 +180,7 @@ RSpec.describe TagsController, type: :controller do
     end
   end
 
+  #all modification is currently blocked in the controller (since users don't own tags, tags are created but exist independently)
   shared_examples_for "no modification access to tags" do #define @user for these tests
     describe "PATCH #update" do
       before :each do

@@ -49,30 +49,30 @@ RSpec.describe SketchesController, type: :controller do
       context "with valid attributes" do
         it "saves the new sketch in the database" do
           expect { #proc - evaluates code before and after
-            post :create, sketch: attributes_for(:sketch) #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
+            post :create, sketch: attributes_for(:sketch_with_uploaded_file) #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
           }.to change(Sketch, :count).by(1)
         end
 
         it "returns the created tag as a JSON response" do
-          post :create, sketch: attributes_for(:sketch)
+          post :create, sketch: attributes_for(:sketch_with_uploaded_file)
           expect(response).to have_http_status(:success)
 
           sketch = Sketch.last
           json = JSON.parse(response.body)
           expect(json["id"]).to eq sketch.id
-          expect(json["name"]).to eq sketch.name
+          expect(json["title"]).to eq sketch.title
         end
       end
 
       context "with invalid attributes" do
         it "does not save the new sketch in the database" do
           expect {
-            post :create, sketch: attributes_for(:invalid_sketch)
+            post :create, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
           }.not_to change(Sketch, :count)
         end
 
         it "returns error as JSON response" do
-          post :create, sketch: attributes_for(:invalid_sketch)
+          post :create, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
           expect(response).to have_http_status(422)
 
           json = JSON.parse(response.body)
@@ -83,11 +83,99 @@ RSpec.describe SketchesController, type: :controller do
   end
 
   shared_examples_for "full access to owned sketches" do #define @user for these tests
+    describe "PATCH #update" do
+      before :each do
+          @sketch = create(:sketch, title: "Test Title", user: @user)
+      end
 
+      context "with valid attributes" do
+        before :each do
+          patch :update, id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file, title: "Updated Title")
+        end
+
+        it "locates the requested sketch" do
+          expect(assigns(:sketch)).to eq @sketch
+        end
+
+        it "changes the sketch's attributes" do
+          @sketch.reload #use reload to check that the changes are actually persisted
+          expect(@sketch.title).to eq "Updated Title"
+        end
+
+        it "returns the updated sketch as a JSON response" do
+          expect(response).to have_http_status(:success)
+
+          json = JSON.parse(response.body)
+          expect(json["id"]).to eq @sketch.id
+          expect(json["title"]).to eq "Updated Title"
+        end
+      end
+
+      context "with invalid attributes" do
+        before :each do
+          patch :update, id: @sketch, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
+        end
+
+        it "does not change the sketch's attributes" do
+          @sketch.reload
+          expect(@sketch.title).to eq "Test Title"
+        end
+
+        it "returns error as JSON response" do
+          expect(response).to have_http_status(422)
+
+          json = JSON.parse(response.body)
+          expect(json).to include("errors")
+        end
+      end
+    end
+
+    describe "DELETE #destroy" do
+      before :each do
+        @sketch = create(:sketch, user: @user)
+      end
+
+      it "deletes the sketch from the database" do
+        expect {
+          delete :destroy, id: @sketch
+        }.to change(Sketch, :count).by(-1)
+      end
+    end
   end
 
   shared_examples_for "no modification access to non-owned sketches" do #define @user for these tests
+    before :each do
+      user2 = create(:user)
+      @sketch = create(:sketch, title: "Test Title", user: user2)
+    end
 
+    describe "PATCH #update" do
+      before :each do
+        patch :update, id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file)
+      end
+
+      it "does not change the sketch's attributes" do
+        @sketch.reload
+        expect(@sketch.title).to eq "Test Title"
+      end
+
+      it "returns 403 forbidden" do
+        expect(response).to have_http_status(403)
+      end
+    end
+
+    describe "DELETE #destroy" do
+      it "doesn't delete the sketch from the database" do
+        expect {
+          delete :destroy, id: @sketch
+        }.not_to change(Sketch, :count)
+      end
+
+      it "returns 403 forbidden" do
+        delete :destroy, id: @sketch
+        expect(response).to have_http_status(403)
+      end
+    end
   end
 
   describe "user access" do
@@ -105,5 +193,25 @@ RSpec.describe SketchesController, type: :controller do
   describe "guest access" do
     it_behaves_like "public access to sketches"
 
+    describe "POST #create" do
+      it "requires login" do
+        post :create, sketch: attributes_for(:sketch_with_uploaded_file)
+        expect(response).to require_login # custom matcher under support/matchers/require_login.rb
+      end
+    end
+
+    describe "PATCH #update" do
+      it "requires login" do
+        patch :update, id: create(:sketch), sketch: attributes_for(:sketch_with_uploaded_file)
+        expect(response).to require_login
+      end
+    end
+
+    describe "DELETE #destroy" do
+      it "requires login" do
+        delete :destroy, id: create(:sketch)
+        expect(response).to require_login
+      end
+    end
   end
 end
