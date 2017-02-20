@@ -27,7 +27,7 @@ RSpec.describe SketchesController, type: :controller do
     describe "GET #show" do
       before :each do
         @sketch = create(:sketch)
-        get :show, id: @sketch
+        get :show, params: { id: @sketch }
       end
 
       it "assigns the requested sketch to @sketch" do
@@ -49,12 +49,12 @@ RSpec.describe SketchesController, type: :controller do
       context "with valid attributes" do
         it "saves the new sketch in the database" do
           expect { #proc - evaluates code before and after
-            post :create, sketch: attributes_for(:sketch_with_uploaded_file) #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
+            post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) } #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
           }.to change(Sketch, :count).by(1)
         end
 
         it "returns the created tag as a JSON response" do
-          post :create, sketch: attributes_for(:sketch_with_uploaded_file)
+          post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) }
           expect(response).to have_http_status(:success)
 
           sketch = Sketch.last
@@ -67,12 +67,12 @@ RSpec.describe SketchesController, type: :controller do
       context "with invalid attributes" do
         it "does not save the new sketch in the database" do
           expect {
-            post :create, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
+            post :create, params: { sketch: attributes_for(:invalid_sketch_with_uploaded_file) }
           }.not_to change(Sketch, :count)
         end
 
         it "returns error as JSON response" do
-          post :create, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
+          post :create, params: { sketch: attributes_for(:invalid_sketch_with_uploaded_file) }
           expect(response).to have_http_status(422)
 
           json = JSON.parse(response.body)
@@ -90,7 +90,7 @@ RSpec.describe SketchesController, type: :controller do
 
       context "with valid attributes" do
         before :each do
-          patch :update, id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file, title: "Updated Title")
+          patch :update, params: { id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file, title: "Updated Title") }
         end
 
         it "locates the requested sketch" do
@@ -113,7 +113,7 @@ RSpec.describe SketchesController, type: :controller do
 
       context "with invalid attributes" do
         before :each do
-          patch :update, id: @sketch, sketch: attributes_for(:invalid_sketch_with_uploaded_file)
+          patch :update, params: { id: @sketch, sketch: attributes_for(:invalid_sketch_with_uploaded_file) }
         end
 
         it "does not change the sketch's attributes" do
@@ -137,7 +137,7 @@ RSpec.describe SketchesController, type: :controller do
 
       it "deletes the sketch from the database" do
         expect {
-          delete :destroy, id: @sketch
+          delete :destroy, params: { id: @sketch }
         }.to change(Sketch, :count).by(-1)
       end
     end
@@ -151,7 +151,7 @@ RSpec.describe SketchesController, type: :controller do
 
     describe "PATCH #update" do
       before :each do
-        patch :update, id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file)
+        patch :update, params: { id: @sketch, sketch: attributes_for(:sketch_with_uploaded_file) }
       end
 
       it "does not change the sketch's attributes" do
@@ -167,12 +167,12 @@ RSpec.describe SketchesController, type: :controller do
     describe "DELETE #destroy" do
       it "doesn't delete the sketch from the database" do
         expect {
-          delete :destroy, id: @sketch
+          delete :destroy, params: { id: @sketch }
         }.not_to change(Sketch, :count)
       end
 
       it "returns 403 forbidden" do
-        delete :destroy, id: @sketch
+        delete :destroy, params: { id: @sketch }
         expect(response).to have_http_status(403)
       end
     end
@@ -195,21 +195,21 @@ RSpec.describe SketchesController, type: :controller do
 
     describe "POST #create" do
       it "requires login" do
-        post :create, sketch: attributes_for(:sketch_with_uploaded_file)
+        post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) }
         expect(response).to require_login # custom matcher under support/matchers/require_login.rb
       end
     end
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :update, id: create(:sketch), sketch: attributes_for(:sketch_with_uploaded_file)
+        patch :update, params: { id: create(:sketch), sketch: attributes_for(:sketch_with_uploaded_file) }
         expect(response).to require_login
       end
     end
 
     describe "DELETE #destroy" do
       it "requires login" do
-        delete :destroy, id: create(:sketch)
+        delete :destroy, params: { id: create(:sketch) }
         expect(response).to require_login
       end
     end

@@ -27,7 +27,7 @@ RSpec.describe ArtistsController, type: :controller do
     describe "GET #show" do
       before :each do
         @artist = create(:user)
-        get :show, id: @artist #make a GET request with id for user
+        get :show, params: { id: @artist } #make a GET request with id for user
       end
 
       it "assigns the requested artist to @artist" do
@@ -48,7 +48,7 @@ RSpec.describe ArtistsController, type: :controller do
         @sketch1 = create(:sketch, user: @artist)
         @sketch2 = create(:sketch, user: @artist)
         @sketch3 = create(:sketch)
-        get :sketches, id: @artist
+        get :sketches, params: { id: @artist }
       end
 
       it "assigns the requested artist to @artist" do
@@ -70,7 +70,7 @@ RSpec.describe ArtistsController, type: :controller do
     describe "PATCH #update" do
       context "with valid attributes" do
         before :each do
-          patch :update, id: @user, user: attributes_for(:user, bio: "Updated bio")
+          patch :update, params: { id: @user, user: attributes_for(:user, bio: "Updated bio") }
         end
 
         it "locates the requested artist" do
@@ -94,13 +94,13 @@ RSpec.describe ArtistsController, type: :controller do
       context "with invalid attributes" do
         it "does not change the artist's attributes" do
           first_name = @user.first_name
-          patch :update, id: @user, user: attributes_for(:invalid_user)
+          patch :update, params: { id: @user, user: attributes_for(:invalid_user) }
           @user.reload
           expect(@user.first_name).to eq first_name
         end
 
         it "returns error as JSON response" do
-          patch :update, id: @user, user: attributes_for(:invalid_user)
+          patch :update, params: { id: @user, user: attributes_for(:invalid_user) }
           expect(response).to have_http_status(422)
 
           json = JSON.parse(response.body)
@@ -118,13 +118,13 @@ RSpec.describe ArtistsController, type: :controller do
 
       it "does not change the artist's attributes" do
         first_name = @artist2.first_name
-        patch :update, id: @artist2, user: attributes_for(:user)
+        patch :update, params: { id: @artist2, user: attributes_for(:user) }
         @artist2.reload
         expect(@artist2.first_name).to eq first_name
       end
 
       it "returns 403 forbidden" do
-        patch :update, id: @artist2, user: attributes_for(:user)
+        patch :update, params: { id: @artist2, user: attributes_for(:user) }
         expect(response).to have_http_status(403)
       end
     end
@@ -146,7 +146,7 @@ RSpec.describe ArtistsController, type: :controller do
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :update, id: create(:user), tag: attributes_for(:user)
+        patch :update, params: { id: create(:user), tag: attributes_for(:user) }
         expect(response).to require_login # custom matcher under support/matchers/require_login.rb
       end
     end

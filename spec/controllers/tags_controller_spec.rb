@@ -55,7 +55,7 @@ RSpec.describe TagsController, type: :controller do
         @sketch3 = create(:sketch)
         @tag.sketches << @sketch1
         @tag.sketches << @sketch2
-        get :show, id: @tag
+        get :show, params: { id: @tag }
       end
 
       it "assigns the requested tag to @tag" do
@@ -78,12 +78,12 @@ RSpec.describe TagsController, type: :controller do
       context "with valid attributes" do
         it "saves the new tag in the database" do
           expect { #proc - evaluates code before and after
-            post :create, tag: attributes_for(:tag) #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
+            post :create, params: { tag: attributes_for(:tag) } #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
           }.to change(Tag, :count).by(1)
         end
 
         it "returns the created tag as a JSON response" do
-          post :create, tag: attributes_for(:tag)
+          post :create, params: { tag: attributes_for(:tag) }
           expect(response).to have_http_status(:success)
 
           tag = Tag.last
@@ -96,19 +96,19 @@ RSpec.describe TagsController, type: :controller do
       context "with invalid attributes" do
         it "does not save the new tag in the database" do
           expect {
-            post :create, tag: attributes_for(:invalid_tag)
+            post :create, params: { tag: attributes_for(:invalid_tag) }
           }.not_to change(Tag, :count)
         end
 
         it "does not save the duplicate tag in the database" do
           create(:tag, name: "test")
           expect {
-            post :create, tag: attributes_for(:tag, name: "test")
+            post :create, params: { tag: attributes_for(:tag, name: "test") }
           }.not_to change(Tag, :count)
         end
 
         it "returns error as JSON response" do
-          post :create, tag: attributes_for(:invalid_tag)
+          post :create, params: { tag: attributes_for(:invalid_tag) }
           expect(response).to have_http_status(422)
 
           json = JSON.parse(response.body)
@@ -127,7 +127,7 @@ RSpec.describe TagsController, type: :controller do
 
       context "with valid attributes" do
         before :each do
-          patch :update, id: @tag, tag: attributes_for(:tag, name: "Updated Name")
+          patch :update, params: { id: @tag, tag: attributes_for(:tag, name: "Updated Name") }
         end
 
         it "locates the requested tag" do
@@ -150,7 +150,7 @@ RSpec.describe TagsController, type: :controller do
 
       context "with invalid attributes" do
         before :each do
-          patch :update, id: @tag, tag: attributes_for(:invalid_tag)
+          patch :update, params: { id: @tag, tag: attributes_for(:invalid_tag) }
         end
 
         it "does not change the tag's attributes" do
@@ -174,7 +174,7 @@ RSpec.describe TagsController, type: :controller do
 
       it "deletes the tag from the database" do
         expect {
-          delete :destroy, id: @tag
+          delete :destroy, params: { id: @tag }
         }.to change(Tag, :count).by(-1)
       end
     end
@@ -185,7 +185,7 @@ RSpec.describe TagsController, type: :controller do
     describe "PATCH #update" do
       before :each do
         @tag = create(:tag, name: "Test Name")
-        patch :update, id: @tag, tag: attributes_for(:tag)
+        patch :update, params: { id: @tag, tag: attributes_for(:tag) }
       end
 
       it "does not change the tag's attributes" do
@@ -205,12 +205,12 @@ RSpec.describe TagsController, type: :controller do
 
       it "doesn't delete the tag from the database" do
         expect {
-          delete :destroy, id: @tag
+          delete :destroy, params: { id: @tag }
         }.not_to change(Tag, :count)
       end
 
       it "returns 403 forbidden" do
-        delete :destroy, id: @tag
+        delete :destroy, params: { id: @tag }
         expect(response).to have_http_status(403)
       end
     end
@@ -232,21 +232,21 @@ RSpec.describe TagsController, type: :controller do
 
     describe "POST #create" do
       it "requires login" do
-        post :create, tag: attributes_for(:tag)
+        post :create, params: { tag: attributes_for(:tag) }
         expect(response).to require_login # custom matcher under support/matchers/require_login.rb
       end
     end
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :update, id: create(:tag), tag: attributes_for(:tag)
+        patch :update, params: { id: create(:tag), tag: attributes_for(:tag) }
         expect(response).to require_login
       end
     end
 
     describe "DELETE #destroy" do
       it "requires login" do
-        delete :destroy, id: create(:tag)
+        delete :destroy, params: { id: create(:tag) }
         expect(response).to require_login
       end
     end
