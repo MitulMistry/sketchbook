@@ -214,4 +214,20 @@ RSpec.describe SketchesController, type: :controller do
       end
     end
   end
+
+  describe "check tag ids" do
+    context "#check_tag_ids_if_hash" do
+      it "converts an associated tags hash to an array" do
+        pending "implement"
+        raise "fail"
+      end
+    end
+
+    context "#check_tag_ids_if_nil" do
+      it "converts associated tags from nil to an empty array" do
+        pending "implement"
+        raise "fail"
+      end
+    end
+  end
 end
