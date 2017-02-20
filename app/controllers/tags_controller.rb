@@ -36,7 +36,7 @@ class TagsController < ApplicationController
 
   def destroy
     @tag.destroy
-    render nothing: true
+    head :ok #formerly - render nothing: true
   end
 
   #--------------------
@@ -47,7 +47,7 @@ class TagsController < ApplicationController
   end
 
   def authorize_ownership #reject updating and destroying tags (for now) since not owned by users
-    render nothing: true, status: 403 #403 forbidden
+    head :forbidden #403 forbidden
     return #guard clause
   end
 

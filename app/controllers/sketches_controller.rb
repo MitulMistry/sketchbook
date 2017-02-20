@@ -33,7 +33,7 @@ class SketchesController < ApplicationController
 
   def destroy
     @sketch.destroy
-    render nothing: true
+    head :ok #formerly - render nothing: true
   end
 
   #--------------------
@@ -45,7 +45,7 @@ class SketchesController < ApplicationController
 
   def authorize_ownership
     if @sketch.user != current_user
-      render nothing: true, status: 403 #403 forbidden
+      head :forbidden #403 forbidden
       return #guard clause
     end
   end
@@ -59,7 +59,7 @@ class SketchesController < ApplicationController
       params[:sketch][:tag_ids] = params[:sketch][:tag_ids].values #then set it to this: "tag_ids"=>["2", "4"]
     end
   end
-  
+
   def check_tag_ids_if_nil #corrects issue where removing tags makes tag_ids = nil by Rails deep_munge
     #Value for params[:sketch][:tag_ids] was set to nil, because it was one of [], [null] or [null, null, ...]. Go to http://guides.rubyonrails.org/security.html#unsafe-query-generation for more information.
     params[:sketch][:tag_ids] ||= [] #if nil, sets to empty array

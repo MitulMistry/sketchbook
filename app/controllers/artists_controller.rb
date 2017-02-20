@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
 
   def authorize_ownership
     if @artist != current_user
-      render nothing: true, status: 403 #403 forbidden
+      head :forbidden #403 forbidden
       return #guard clause
     end
   end
