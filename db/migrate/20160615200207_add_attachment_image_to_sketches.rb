@@ -1,8 +1,6 @@
 class AddAttachmentImageToSketches < ActiveRecord::Migration
   def self.up
-    change_table :sketches do |t|
-      t.attachment :image
-    end
+    add_attachment :sketches, :image
   end
 
   def self.down
