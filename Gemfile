@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'active_model_serializers'
 gem 'paperclip', '~> 5.1'
+gem 'aws-sdk', '~> 2.8', '>= 2.8.6'
 gem 'faker' #used for production seeding as well as tests
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
