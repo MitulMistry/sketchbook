@@ -1,4 +1,4 @@
-class CreateSketchTags < ActiveRecord::Migration
+class CreateSketchTags < ActiveRecord::Migration[4.2]
   def change
     create_table :sketch_tags do |t|
       t.integer :sketch_id

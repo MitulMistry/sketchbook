@@ -1,4 +1,4 @@
-class AddAttachmentImageToSketches < ActiveRecord::Migration
+class AddAttachmentImageToSketches < ActiveRecord::Migration[4.2]
   def self.up
     add_attachment :sketches, :image
   end
