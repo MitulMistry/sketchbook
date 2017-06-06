@@ -5,6 +5,11 @@
  * License: MIT http://opensource.org/licenses/MIT
  */
 
+ /* commonjs package manager support (eg componentjs) */
+ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
+   module.exports = 'checklist-model';
+ }
+
 angular.module('checklist-model', [])
 .directive('checklistModel', ['$parse', '$compile', function($parse, $compile) {
   // contains
@@ -26,7 +31,7 @@ angular.module('checklist-model', [])
           arr.push(item);
       }
     return arr;
-  }  
+  }
 
   // remove
   function remove(arr, item, comparator) {
@@ -58,7 +63,13 @@ angular.module('checklist-model', [])
 
 
 
-    var comparator = angular.equals;
+    var comparator = function (a, b) {
+      if(!isNaN(a) && !isNaN(b)) {
+        return String(a) === String(b);
+      } else {
+        return angular.equals(a,b);
+      }
+    };
 
     if (attrs.hasOwnProperty('checklistComparator')){
       if (attrs.checklistComparator[0] == '.') {
@@ -66,15 +77,15 @@ angular.module('checklist-model', [])
         comparator = function (a, b) {
           return a[comparatorExpression] === b[comparatorExpression];
         };
-        
+
       } else {
         comparator = $parse(attrs.checklistComparator)(scope.$parent);
       }
     }
 
     // watch UI checked change
-    scope.$watch(attrs.ngModel, function(newValue, oldValue) {
-      if (newValue === oldValue) { 
+    var unbindModel = scope.$watch(attrs.ngModel, function(newValue, oldValue) {
+      if (newValue === oldValue) {
         return;
       }
 
@@ -90,19 +101,27 @@ angular.module('checklist-model', [])
       }
     });
 
-    // watches for value change of checklistValue (Credit to @blingerson)
-    scope.$watch(getChecklistValue, function(newValue, oldValue) {
+    // watches for value change of checklistValue
+    var unbindCheckListValue = scope.$watch(getChecklistValue, function(newValue, oldValue) {
       if( newValue != oldValue && angular.isDefined(oldValue) && scope[attrs.ngModel] === true ) {
         var current = checklistModelGetter(scope.$parent);
         checklistModelGetter.assign(scope.$parent, remove(current, oldValue, comparator));
         checklistModelGetter.assign(scope.$parent, add(current, newValue, comparator));
       }
-    });
+    }, true);
+
+    var unbindDestroy = scope.$on('$destroy', destroy);
+
+    function destroy() {
+      unbindModel();
+      unbindCheckListValue();
+      unbindDestroy();
+    }
 
     function getChecklistValue() {
       return attrs.checklistValue ? $parse(attrs.checklistValue)(scope.$parent) : attrs.value;
     }
-    
+
     function setValueInChecklistModel(value, checked) {
       var current = checklistModelGetter(scope.$parent);
       if (angular.isFunction(checklistModelGetter.assign)) {
@@ -112,7 +131,7 @@ angular.module('checklist-model', [])
           checklistModelGetter.assign(scope.$parent, remove(current, value, comparator));
         }
       }
-      
+
     }
 
     // declare one function to be used for both $watch functions

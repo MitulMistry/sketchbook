@@ -1,11 +1,11 @@
 {
   "name": "sketchbook",
   "dependencies": {
-      "angular": "v1.5.7",
+      "angular": "v1.6.4",
       "angular-ui-router" : "latest",
-      "angular-resource" : "v1.5.3",
+      "angular-resource" : "v1.6.4",
       "angular-bootstrap" : "latest",
-      "bootstrap" : "v3.3.6",
+      "bootstrap" : "v3.3.7",
       "angular-devise" : "latest",
       "angular-messages" : "latest",
       "angular-flash-alert" : "latest",

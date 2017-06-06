@@ -6,15 +6,15 @@
 AngularJS directive for list of checkboxes
 
 ## Why this is needed?  
-In Angular one checkbox `<input type="checkbox" ng-model="...">` is linked 
+In Angular one checkbox `<input type="checkbox" ng-model="...">` is linked
 with one model.  
-But in practice we usually want one model to store array of checked values 
+But in practice we usually want one model to store array of checked values
 from several checkboxes.  
 **Checklist-model** solves that task without additional code in controller.   
 
 ## Usage
 You should play with attributes of `<input>` tag:
-  
+
 | Attribute                 | Mandatory | Description                                   |
 | :-----------------------: | :-------: | --------------------------------------------- |
 | `checklist-model`         | Yes       | Use instead of `ng-model`                     |
@@ -33,12 +33,16 @@ Please, try out
 * Live demo: http://vitalets.github.io/checklist-model
 * JsFiddle basic example (use this to report any issue): http://jsfiddle.net/beradrian/fjoLy5sq/
 * JSFiddle required example: http://jsfiddle.net/beradrian/7wt9q1ev/  
-* Plunkr example: http://plnkr.co/edit/pZLF0KesMDnIap0eCfSG?p=preview
+* Plunkr example: http://plnkr.co/edit/0UrMwtiNQxJJbVWnYgSt?p=preview
 * Plunkr example for [tree list](http://plnkr.co/edit/QPLk98pCljp8dFtptSYz?p=preview)
 
 ## Installation
-1. Download [latest release](https://github.com/vitalets/checklist-model/releases) or use bower `bower install checklist-model` or install from npm `npm install checklist-model`
-2. Add to app dependencies:
+1. Include the directive in your code
+    1. Download [latest release](https://github.com/vitalets/checklist-model/releases) *or*
+    2. Use bower `bower install checklist-model` *or*
+    3. Install from npm `npm install checklist-model`
+2. If your JavaScript file is not generated from dependencies, then you must include it in your HTML `<script src='checklist-model.js'></script>`
+3. Add to app dependencies:
 ````js
 var app = angular.module("app", ["checklist-model"]);
 ````
@@ -64,9 +68,9 @@ The best way to involve is to report an issue/enhancement and then provide a pul
 7. Access `http://localhost:8000` for samples and `http://localhost:8000/test` for running the tests.
 
 ### How to make a new release
-1. Change the version number in `bower.json` and `package.json`
+1. Change the version number in `package.json`, `bower.json` and `checklist-model.nuspec` (if not already changed - check the version number against the latest release in Github)
 2. Create a new [release](https://github.com/vitalets/checklist-model/releases) in github with the same name for tag and title as the version number (e.g. `1.0.0`). Do not forget to include the changelog in the release description.
 3. Run `npm publish` to publish the new version to npm
 
 ## License
-MIT 
+MIT
