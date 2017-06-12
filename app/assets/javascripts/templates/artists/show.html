@@ -4,14 +4,14 @@
   <p>{{ ctrl.artist.email }}</p>
   <p ng-if="ctrl.artist.bio">{{ ctrl.artist.bio }}</p>
 
-  <p ng-show="ctrl.ifOwner()"></br><a href ui-sref="home.editArtist({id: ctrl.artist.id})" class="btn btn-info" role="button">Edit Profile</a></p>
+  <p ng-show="ctrl.ifOwner()"></br><a href ui-sref="home.editArtist({id: ctrl.artist.id})" class="btn btn-primary" role="button">Edit Profile</a></p>
 </div>
 
 <div class="sketches">
   <div class="row">
     <sketch dir-paginate="sketch in ctrl.sketches | itemsPerPage: ctrl.pageSize" data="sketch"></sketch>
   </div>
-  
+
   <div class="row">
     <dir-pagination-controls></dir-pagination-controls>
   </div>
