@@ -17,7 +17,7 @@ Users can create an account, upload images (sketches), and view the sketches of 
 - Serialization (responding to requests with data converted to JSON) is handled by [Active Model Serializers][active-model-serializers].
 
 ## Install Instructions
-To get it running in development, install dependencies from the [Gemfile][gemfile] via [Bundler][bundler] by running `bundle install`. Front end dependencies are managed with Bower, but Bower dependencies are checked in to git under [`vendor/assets/bower_components`][vendor]. If you want to update them, you can run `bundle exec rails bower:update`.
+To get it running in development, install dependencies from the [Gemfile][gemfile] via [Bundler][bundler] by running `bundle install`. Front end dependencies are managed with Bower, but Bower dependencies are checked in to git under [`vendor/assets/bower_components`][vendor]. If you want to update them, you can run `bundle exec rails bower:update`. Bower components are included in the [JavaScript manifest file][js-manifest] to add them to the Rails asset pipeline, then included in the Angular [app.js file][app-js]. Styles are included in the [CSS manifest file][css-manifest].
 
 Since the application uses PostgreSQL, you need to have it installed locally on your machine with a user that has table creation privileges. You can get further instructions [here][postgres-local-setup]. If you'd rather not bother with PostgreSQL, you can use an older version of the application that uses SQLite3 [here][old-version-1].
 
@@ -47,6 +47,9 @@ This project is open source under the terms of the [MIT License][mit].
 [s3]: https://aws.amazon.com/s3/
 [active-model-serializers]: https://github.com/rails-api/active_model_serializers
 [vendor]: https://github.com/MitulMistry/sketchbook/tree/master/vendor/assets/bower_components
+[js-manifest]: https://github.com/MitulMistry/sketchbook/blob/master/app/assets/javascripts/application.js
+[app-js]: https://github.com/MitulMistry/sketchbook/blob/master/app/assets/javascripts/angular-app/app.js
+[css-manifest]: https://github.com/MitulMistry/sketchbook/blob/master/app/assets/stylesheets/application.css
 [postgres-local-setup]: https://devcenter.heroku.com/articles/heroku-postgresql#local-setup
 [old-version-1]: https://github.com/MitulMistry/sketchbook/tree/c0a0dc6d35e8a459846ffb7a57b1f3f3eb5aa4b2
 [heroku-s3-setup]: https://devcenter.heroku.com/articles/s3
