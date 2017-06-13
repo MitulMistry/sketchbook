@@ -23,4 +23,5 @@
 //= require ng-file-upload
 //= require angular-checklist-model
 //= require angular-utils-pagination
+//= require angular-sticky-footer/angular-sticky-footer.js
 //= require_tree .

@@ -11,6 +11,7 @@
       "angular-flash-alert" : "latest",
       "ng-file-upload": "latest",
       "angular-checklist-model": "latest",
-      "angular-utils-pagination": "latest"
+      "angular-utils-pagination": "latest",
+      "angular-sticky-footer": "latest"
     }
 }

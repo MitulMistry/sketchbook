@@ -36,21 +36,31 @@ a:hover, a:focus {
   color: $primary-black;
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
     color: $primary-red;
 }
 // --------
 
-.btn-primary, .btn-primary[disabled]:hover {
+.btn-primary,
+.btn-primary[disabled]:hover {
   color: white;
   background-color: $primary-red;
   border-color: $primary-red-dark;
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
   color: white;
   background-color: $primary-red-highlight;
   border-color: $primary-red;
+}
+
+.btn-primary:active:focus {
+  color: white;
+  background-color: $primary-red-dark;
+  border-color: $primary-red-dark;
 }
 
 // Jumbotron --------
@@ -171,6 +181,40 @@ label {
   // color: #fff;
 }
 // --------
+
+.footer {
+  color: white;
+  background-color: $primary-red;
+  text-align: center;
+
+  ul.footer-links {
+    padding: 10px 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: $primary-red-highlight;
+  }
+}
 
 // ng-file-upload styles --------
 .thumb {

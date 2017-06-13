@@ -1,17 +1,21 @@
-<div ng-include="'navbar.html'"></div>
+<div class="wrapper">
+  <div ng-include="'navbar.html'"></div>
 
-<div class="container">
-  <flash-message></flash-message>
-</div>
-
-<div class="jumbotron" ng-show="ctrl.home()">
   <div class="container">
-    <h1>Sketchbook</h1>
-    <h3>An application to upload and share your sketches</h3>
-    <p></br><a href ui-sref="home.sketches" class="btn btn-primary btn-lg" role="button">Explore</a></p>
+    <flash-message></flash-message>
   </div>
-</div>
 
-<div class="container">
-  <ui-view></ui-view>
-</div>
+  <div class="jumbotron" ng-show="ctrl.home()">
+    <div class="container">
+      <h1>Sketchbook</h1>
+      <h3>An application to upload and share your sketches</h3>
+      <p></br><a href ui-sref="home.sketches" class="btn btn-primary btn-lg" role="button">Explore</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <ui-view></ui-view><!-- current view content -->
+  </div>
+</div><!-- wrapper -->
+
+<div ng-include="'footer.html'" sticky-footer=".wrapper"></div>

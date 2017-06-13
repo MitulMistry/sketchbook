@@ -1,0 +1,25 @@
+{
+  "name": "angular-sticky-footer",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.2",
+    "jquery": ">=1.10"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/incuna/angular-sticky-footer",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "1c5771a521de307bb8bac3f9ce0aba3efed96023"
+  },
+  "_source": "https://github.com/incuna/angular-sticky-footer.git",
+  "_target": "*",
+  "_originalSource": "angular-sticky-footer"
+}

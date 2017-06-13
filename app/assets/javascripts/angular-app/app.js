@@ -9,7 +9,8 @@ angular
     'ngFlash', //flash message for AngularJS and Bootstrap
     'ngFileUpload', //angular directive to upload files
     'checklist-model', //angular checklist-model for checkbox arrays for forms
-    'angularUtils.directives.dirPagination' //angular-utils-paginations
+    'angularUtils.directives.dirPagination', //angular-utils-paginations
+    'sticky-footer' //angular-sticky-footer directive to keep footer at bottom of page
   ])
   .config(function($stateProvider, $urlRouterProvider){
     $stateProvider
