@@ -1,6 +1,7 @@
 <footer class="footer">
   <div class="container">
-    <ul class="footer-links">
+    <div class="centered-pills">
+    <ul class="nav nav-pills footer-links">
       <li><a href ui-sref="home.sketches">Sketches</a></li>
       <li><a href ui-sref="home.artists">Artists</a></li>
       <li ng-hide="signedIn()"><a href ui-sref="home.login">Log In</a></li>
@@ -9,8 +10,9 @@
       <li ng-show="signedIn()"><a href ui-sref="home.profile">Profile</a></li>
       <li ng-show="signedIn()"><a href ng-click="logout()">Logout</a></li>
     </ul>
+  </div>
 
     <p><a href="https://github.com/MitulMistry/sketchbook" target="_blank">Github repo for this site</a></p>
-    <p>&copy; Mitul Mistry <span id="copyright">2017</span></p>
+    <p>&copy; Mitul Mistry {{ ctrl.date | date:"yyyy" }}</p>
   </div>
 </footer>
