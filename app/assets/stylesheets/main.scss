@@ -4,11 +4,13 @@ $primary-black: black;
 $primary-red: #BC0A3C;
 $primary-red-highlight: #f20e4e;
 $primary-red-dark: #9b042f;
+$primary-red-light: #efbfcd;
 $gray1: #846971;
 $gray1-dark: #664e55;
 
 body {
   font-family: 'Lato', sans-serif;
+  font-size: 15px;
 }
 
 a {
@@ -96,6 +98,7 @@ a:hover, a:focus {
 
   h5 {
     margin-top: 4px;
+    font-size: 16px;
   }
 }
 
@@ -207,7 +210,7 @@ label {
     }
 
     a:hover {
-      color: $primary-red-highlight;
+      color: $primary-red-light;
       background-color:inherit;
     }
   }
@@ -217,7 +220,7 @@ label {
   }
 
   a:hover {
-    color: $primary-red-highlight;
+    color: $primary-red-light;
   }
 }
 
