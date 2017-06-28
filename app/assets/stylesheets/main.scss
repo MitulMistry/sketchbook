@@ -72,6 +72,9 @@ a:hover, a:focus {
 
 // Jumbotron --------
 .jumbotron {
+  background: #000 image-url("sketchbook_jumbo_bg_01.jpg") no-repeat center center;
+  background-size: cover;
+
   h1 {
 
   }
