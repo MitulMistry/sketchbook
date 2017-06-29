@@ -10,6 +10,11 @@ class SketchesController < ApplicationController
     render json: @sketches
   end
 
+  def random_sketches
+    @sketches = Sketch.randomized(3)
+    render json: @sketches
+  end
+
   def show
     render json: @sketch
   end

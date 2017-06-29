@@ -58,14 +58,14 @@ RSpec.describe SketchesController, type: :controller do
         expect(response).to have_http_status(:success)
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
-        sketch1 = Sketch.find(json[0].id)
-        expect(json[0].title).to eq(sketch1.title)
+        sketch1 = Sketch.find(json[0]["id"])
+        expect(json[0]["title"]).to eq(sketch1.title)
 
-        sketch2 = Sketch.find(json[1].id)
-        expect(json[1].title).to eq(sketch2.title)
+        sketch2 = Sketch.find(json[1]["id"])
+        expect(json[1]["title"]).to eq(sketch2.title)
 
-        sketch3 = Sketch.find(json[2].id)
-        expect(json[2].title).to eq(sketch3.title)
+        sketch3 = Sketch.find(json[2]["id"])
+        expect(json[2]["title"]).to eq(sketch3.title)
       end
     end
   end

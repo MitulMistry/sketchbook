@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'artists/:id/sketches' => 'artists#sketches' #get the sketches of an artist by artist id
 
   resources :sketches, only: [:index, :show, :create, :update, :destroy]
+  get 'sketches/random_sketches' => 'sketches#random_sketches'
   get 'tags/non_empty' => 'tags#non_empty'
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :comments, only: [:create, :update, :destroy]

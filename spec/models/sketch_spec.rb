@@ -38,4 +38,18 @@ RSpec.describe Sketch, type: :model do
       expect(sketch).to be_valid
     end
   end
+
+  describe "randomized" do
+    it "returns a random number of sketches" do
+      5.times { create(:sketch) }
+
+      sketches = Sketch.randomized(3)
+      expect(sketches.first).to be_a(Sketch)
+      expect(sketches.length).to eq 3
+
+      sketches = Sketch.randomized(5)
+      expect(sketches.first).to be_a(Sketch)
+      expect(sketches.length).to eq 5
+    end
+  end
 end
