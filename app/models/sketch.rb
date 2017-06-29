@@ -16,12 +16,10 @@ class Sketch < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
   validates :description, length: { maximum: 2000 }
 
+  extend ClassOrderable #for "randomized" method in concern
+
   def image_from_url(url)
     self.image = URI.parse(url) #self.image = open(URI.parse(url))
     #self.save #need to save after image is set
-  end
-
-  def self.randomized(count)
-    order("RANDOM()").first(count)
   end
 end
