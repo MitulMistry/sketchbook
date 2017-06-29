@@ -43,29 +43,29 @@ RSpec.describe SketchesController, type: :controller do
       end
     end
 
-    describe "GET #recent_sketches" do
+    describe "GET #random_sketches" do
       before :each do
-        2.times { create(:sketch) }
-        @sketch1 = create(:sketch)
-        @sketch2 = create(:sketch)
-        @sketch3 = create(:sketch)
-        get :recent_sketches
+        5.times { create(:sketch) }
+        get :random_sketches
       end
 
-      it "assigns the last 3 sketches to @sketches" do
-        expect(assigns(:sketches)).to eq([@sketch3, @sketch2, @sketch1])
+      it "assigns 3 sketches to @sketches" do
+        expect(assigns(:sketches).first).to be_a(Sketch)
+        expect(assigns(:sketches).length).to eq 3
       end
 
       it "returns JSON-formatted content" do
         expect(response).to have_http_status(:success)
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
-        expect(json[0].id).to eq(@sketch3.id)
-        expect(json[0].title).to eq(@sketch3.title)
-        expect(json[1].id).to eq(@sketch2.id)
-        expect(json[1].title).to eq(@sketch2.title)
-        expect(json[2].id).to eq(@sketch1.id)
-        expect(json[2].title).to eq(@sketch1.title)
+        sketch1 = Sketch.find(json[0].id)
+        expect(json[0].title).to eq(sketch1.title)
+
+        sketch2 = Sketch.find(json[1].id)
+        expect(json[1].title).to eq(sketch2.title)
+
+        sketch3 = Sketch.find(json[2].id)
+        expect(json[2].title).to eq(sketch3.title)
       end
     end
   end
