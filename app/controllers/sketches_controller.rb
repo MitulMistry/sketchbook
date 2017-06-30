@@ -11,7 +11,7 @@ class SketchesController < ApplicationController
   end
 
   def random_sketches
-    @sketches = Sketch.randomized(3)
+    @sketches = Sketch.randomized(6)
     render json: @sketches
   end
 

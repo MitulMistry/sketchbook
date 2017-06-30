@@ -45,13 +45,13 @@ RSpec.describe SketchesController, type: :controller do
 
     describe "GET #random_sketches" do
       before :each do
-        5.times { create(:sketch) }
+        7.times { create(:sketch) }
         get :random_sketches
       end
 
-      it "assigns 3 sketches to @sketches" do
+      it "assigns 6 sketches to @sketches" do
         expect(assigns(:sketches).first).to be_a(Sketch)
-        expect(assigns(:sketches).length).to eq 3
+        expect(assigns(:sketches).length).to eq 6
       end
 
       it "returns JSON-formatted content" do
