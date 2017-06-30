@@ -17,7 +17,12 @@ angular
       .state('home', { //create a ui-router state
         url: '/', //set url route
         templateUrl: 'home.html', //set template url
-        controller: 'HomeController as ctrl' //set controller for this route (equavelent of using <ng-controller="..."> in template)
+        controller: 'HomeController as ctrl', //set controller for this route (equavelent of using <ng-controller="..."> in template)
+        resolve: { //execute this code before the template is rendered
+          homeSketches: function (SketchesService) { //set sketches equal to SketchesService.getSketches() to be used in the template
+            return SketchesService.getRandomSketches();
+          }
+        }
       })
       .state('home.login', { //home.login uses home.html and inserts login template into the <ui-view>
         url: 'login',

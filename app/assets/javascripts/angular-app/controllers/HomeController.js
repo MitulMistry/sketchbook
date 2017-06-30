@@ -1,5 +1,6 @@
-function HomeController($state) {
+function HomeController($state, homeSketches) { //sketches are injected from app.js resolve
   var ctrl = this;
+  ctrl.homeSketches = homeSketches.data;
   ctrl.$state = $state;
   ctrl.date = new Date();
 

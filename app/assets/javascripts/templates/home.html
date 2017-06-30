@@ -13,6 +13,16 @@
     </div>
   </div>
 
+  <div class="container" ng-show="ctrl.home()">
+    <div class="col-md-12 sketches">
+      <div class="row">
+        <sketch data="sketch" ng-repeat="sketch in ctrl.homeSketches"></sketch>
+      </div>
+    </div>
+
+    <p class="text-center"><a href ui-sref="home.register" class="btn btn-primary btn-lg" role="button" style="margin-bottom: 20px;">Get Started</a></p>
+  </div>
+
   <div class="container">
     <ui-view></ui-view><!-- current view content -->
   </div>

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :artists, only: [:index, :show, :update] #artist is not a model, just an alias for devise users
   get 'artists/:id/sketches' => 'artists#sketches' #get the sketches of an artist by artist id
 
-  resources :sketches, only: [:index, :show, :create, :update, :destroy]
   get 'sketches/random_sketches' => 'sketches#random_sketches'
+  resources :sketches, only: [:index, :show, :create, :update, :destroy]
+
   get 'tags/non_empty' => 'tags#non_empty'
   resources :tags, only: [:index, :show, :create, :update, :destroy]
   resources :comments, only: [:create, :update, :destroy]
