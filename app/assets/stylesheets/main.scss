@@ -28,6 +28,29 @@ a:hover, a:focus {
 }
 
 // Nav header --------
+.horizontal-collapse {
+  height: 70px;
+}
+
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
 .nav-pills > li > a {
   color: $primary-black;
   border-radius: 0;

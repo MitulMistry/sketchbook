@@ -1,6 +1,10 @@
 function NavController($scope, $state, Auth, MessagesService, $window) {
   var ctrl = this;
 
+  $scope.isNavCollapsed = true;
+  $scope.isCollapsed = false;
+  $scope.isCollapsedHorizontal = false;
+
   $scope.signedIn = Auth.isAuthenticated; //used to check if user is signed in
 
   $scope.logout = function(){ //used to logout through this controller

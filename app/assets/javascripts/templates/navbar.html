@@ -1,7 +1,7 @@
-<nav ng-controller="NavController" class="navbar">
+<nav ng-controller="NavController" class="navbar" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+      <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -10,7 +10,7 @@
       <a class="navbar-brand" ui-sref="home">Sketchbook</a>
     </div>
 
-    <div class="hidden-xs">
+    <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
       <ul class="nav nav-pills navbar-nav">
         <li ui-sref-active="active"><a href ui-sref="home.sketches">Sketches</a></li>
         <li ui-sref-active="active"><a href ui-sref="home.artists">Artists</a></li>
