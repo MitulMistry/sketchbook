@@ -2,6 +2,7 @@ function SketchController(sketch, user, SketchesService) { //sketch and user are
   var ctrl = this;
 
   ctrl.sketch = sketch.data;
+  console.log(sketch);
   //ctrl.data = sketch.data;
 
   ctrl.ifOwner = function() {

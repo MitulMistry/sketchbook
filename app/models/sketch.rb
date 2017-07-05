@@ -5,12 +5,12 @@ class Sketch < ActiveRecord::Base
   has_many :sketch_tags
   has_many :tags, through: :sketch_tags
 
-  has_attached_file :image#, styles: { large: "1024x768>", medium: "300x300>", thumb: "100x100#" }#, :default_url => "/profile_photo_store/missing.png"
+  has_attached_file :image, styles: { large: "1024x1024>", medium: "400x600>" }#, :default_url => "/profile_photo_store/missing.png"  # 400x625# means crop to that size regardless of what's uploaded, use > to preserve aspect ratio
   #do_not_validate_attachment_file_type :image
 
   validates_attachment :image, presence: true,
     content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
-    size: { in: 0..5.megabytes }
+    size: { in: 0..2.megabytes }
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 100 }
