@@ -16,6 +16,9 @@ body {
 
 a {
   color: $primary-red;
+}
+
+a.navbar-brand, div.sketch a, div.artist a, footer a {
   transition: color 0.1s linear;
   -o-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
