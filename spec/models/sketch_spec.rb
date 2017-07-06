@@ -20,7 +20,7 @@ RSpec.describe Sketch, type: :model do
       it { should validate_attachment_content_type(:image).
         allowing("image/jpeg", "image/jpg", "image/gif", "image/png").
         rejecting("text/plain", "text/xml") }
-      it { should validate_attachment_size(:image).less_than(5.megabytes) }
+      it { should validate_attachment_size(:image).less_than(2.megabytes) }
     end
 
     context "other validations" do
