@@ -245,7 +245,7 @@ DEPENDENCIES
   active_model_serializers
   angular-rails-templates
   angular_rails_csrf
-  aws-sdk (~> 2.9, >= 2.9.31)
+  aws-sdk (< 3.0)
   bower-rails
   byebug
   coffee-rails (~> 4.2)
@@ -272,4 +272,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.16.0

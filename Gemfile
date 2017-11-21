@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3' # For authentication
 gem 'active_model_serializers' # For serializing JSON responses from API
 gem 'paperclip', '~> 5.1' # For image attachments
-gem 'aws-sdk', '~> 2.9', '>= 2.9.31' # For image uploading to S3 in production
+gem 'aws-sdk', '< 3.0' # For image uploading to S3 in production
 gem 'faker' #used for production seeding as well as tests
 
 gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
