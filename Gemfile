@@ -35,9 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'devise', '~> 4.3' # For authentication
-gem 'active_model_serializers' # For serializing JSON responses from API
-gem 'paperclip', '~> 5.1' # For image attachments
+gem 'devise', '~> 4.4', '>= 4.4.1' # For authentication
+gem 'active_model_serializers', '~> 0.10.7' # For serializing JSON responses from API
+gem 'paperclip', '~> 5.2', '>= 5.2.1' # For image attachments
 gem 'aws-sdk', '< 3.0' # For image uploading to S3 in production
 gem 'faker' #used for production seeding as well as tests
 
