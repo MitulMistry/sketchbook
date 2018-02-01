@@ -2,7 +2,7 @@
 
 Sketchbook is a web application used to help artists manage and share their sketches, and to allow users to search and explore the sketches of others. It is built with an Angular 1 front end and a Rails serialized JSON back end.
 
-![screenshot](readme_sketchbook)
+![screenshot](readme_sketchbook.jpg)
 
 ## Demo App
 You can see a demo version of the application deployed to Heroku here: https://angular-sketchbook.herokuapp.com/
