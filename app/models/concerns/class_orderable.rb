@@ -2,6 +2,6 @@ module ClassOrderable
   extend ActiveSupport::Concern
 
   def randomized(count)
-    order("RANDOM()").first(count)
+    order(Arel.sql("RANDOM()")).first(count)
   end
 end
