@@ -15,7 +15,7 @@ RSpec.describe ArtistsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["username"] == @artist1.username }).to be true #check if any of the user hashes contains the specified username
@@ -35,7 +35,7 @@ RSpec.describe ArtistsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #hash
         expect(json["username"]).to eq @artist.username
@@ -56,7 +56,7 @@ RSpec.describe ArtistsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["title"] == @sketch1.title }).to be true #check if any of the sketch hashes contains the specified title
@@ -83,7 +83,7 @@ RSpec.describe ArtistsController, type: :controller do
         end
 
         it "returns the updated artist as a JSON response" do
-          expect(response).to have_http_status(:success)
+          expect(response).to  be_successful
 
           json = JSON.parse(response.body)
           expect(json["id"]).to eq @user.id

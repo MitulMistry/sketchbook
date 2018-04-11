@@ -15,7 +15,7 @@ RSpec.describe SketchesController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["id"] == @sketch1.id }).to be true #check if any of the sketch hashes contains the specified tags
@@ -35,7 +35,7 @@ RSpec.describe SketchesController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #hash
         expect(json["id"]).to eq(@sketch.id)
@@ -55,7 +55,7 @@ RSpec.describe SketchesController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to  be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         sketch1 = Sketch.find(json[0]["id"])
@@ -81,7 +81,7 @@ RSpec.describe SketchesController, type: :controller do
 
         it "returns the created tag as a JSON response" do
           post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) }
-          expect(response).to have_http_status(:success)
+          expect(response).to  be_successful
 
           sketch = Sketch.last
           json = JSON.parse(response.body)
@@ -129,7 +129,7 @@ RSpec.describe SketchesController, type: :controller do
         end
 
         it "returns the updated sketch as a JSON response" do
-          expect(response).to have_http_status(:success)
+          expect(response).to  be_successful
 
           json = JSON.parse(response.body)
           expect(json["id"]).to eq @sketch.id

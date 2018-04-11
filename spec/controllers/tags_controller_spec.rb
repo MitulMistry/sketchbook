@@ -15,7 +15,7 @@ RSpec.describe TagsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["id"] == @tag1.id }).to be true #check if any of the user hashes contains the specified tags
@@ -38,7 +38,7 @@ RSpec.describe TagsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to be_successful
 
         json = JSON.parse(response.body) #an array of hashes: [{id: 1, ...}, {id: 2, ...}]
         expect(json.any? { |hash| hash["id"] == @tag1.id }).to be true
@@ -63,7 +63,7 @@ RSpec.describe TagsController, type: :controller do
       end
 
       it "returns JSON-formatted content" do
-        expect(response).to have_http_status(:success)
+        expect(response).to be_successful
 
         json = JSON.parse(response.body) #hash
         expect(json.any? { |hash| hash["id"] == @sketch1.id }).to be true
@@ -84,7 +84,7 @@ RSpec.describe TagsController, type: :controller do
 
         it "returns the created tag as a JSON response" do
           post :create, params: { tag: attributes_for(:tag) }
-          expect(response).to have_http_status(:success)
+          expect(response).to be_successful
 
           tag = Tag.last
           json = JSON.parse(response.body)
@@ -140,7 +140,7 @@ RSpec.describe TagsController, type: :controller do
         end
 
         it "returns the updated tag as a JSON response" do
-          expect(response).to have_http_status(:success)
+          expect(response).to be_successful
 
           json = JSON.parse(response.body)
           expect(json["id"]).to eq @tag.id
