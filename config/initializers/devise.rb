@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -6,7 +8,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '188a6fc7785ac9ff1701dade5b57166420d4c95952aa3fa75bcece5170e413408956db8afc760cf7be872e64e600fca198feaeedbd36955baf92b144db255177'
+  # config.secret_key = '43002ad72ae87d9840b052a884545e4964b12d13c2ae09e0b24be01cd12e644587a2ecec555d37e86f9d692c9056bb1fbe1c2469b372d0ad8105d4101a2acfb6'
+  
+  # ==> Controller configuration
+  # Configure the parent class to the devise controllers.
+  # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -90,6 +96,12 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
+  # When false, Devise will not attempt to reload routes on eager load.
+  # This can reduce the time taken to boot the app but if your application
+  # requires the Devise mappings to be loaded during boot time the application
+  # won't boot properly.
+  # config.reload_routes = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
@@ -102,9 +114,12 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '54a0ce5c6aa762215d0b68532e701de797b95f8ef8dd9f37a4c73b5dd974c41ba61933d9a9a7e6edb7c3301ebd8ee6ff79ec83c2ed4ca1c3dbc9c71ed3da3ddb'
+  # config.pepper = 'c39028b02fe9d0dce1eebe66a40cf7eb6d24020c98aae1cab1f8d4b0345fb78b103c1bd0896502d61c9a1d0d6ae354651c62e82419f02792aa3a4cc098b49120'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification to the original email when the user's email is changed.
+  # config.send_email_changed_notification = false
+
+  # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
