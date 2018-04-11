@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Sketchbook</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body ng-app="app">
+  <head>
+    <title>Sketchbook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <ui-view></ui-view>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
 
-</body>
+  <body ng-app="app">
+    <ui-view></ui-view>
+  </body>
 </html>
