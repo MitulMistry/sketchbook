@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby '2.4.4'
+ruby '2.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 # Use PostgreSQL as the database for Active Record
-gem 'pg', '~> 1.0'
+gem 'pg', '~> 1.1', '>= 1.1.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -38,9 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'devise', '~> 4.4', '>= 4.4.3' # For authentication
-gem 'active_model_serializers', '~> 0.10.7' # For serializing JSON responses from API
-gem 'paperclip', '~> 6.0' # For image attachments
+gem 'devise', '~> 4.5' # For authentication
+gem 'active_model_serializers', '~> 0.10.8' # For serializing JSON responses from API
+gem 'paperclip', '~> 6.1' # For image attachments
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1' # For image uploading to S3 in production
 gem 'faker' #used for production seeding as well as tests
 
@@ -79,7 +79,7 @@ group :test do
 end
 
 group :production do
-  #gem "google-analytics-rails"
+  #gem 'google-analytics-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
