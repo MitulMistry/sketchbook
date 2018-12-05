@@ -4,7 +4,7 @@ RSpec.describe SketchesController, type: :controller do
   shared_examples_for "public access to sketches" do
     describe "GET #index" do
       before :each do
-        @sketch1 = create(:sketch) #using FactoryGirl syntax methods in rails_helper.rb
+        @sketch1 = create(:sketch) #using FactoryBot syntax methods in rails_helper.rb
         @sketch2 = create(:sketch)
         @sketch3 = create(:sketch)
         get :index
@@ -75,7 +75,7 @@ RSpec.describe SketchesController, type: :controller do
       context "with valid attributes" do
         it "saves the new sketch in the database" do
           expect { #proc - evaluates code before and after
-            post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) } #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
+            post :create, params: { sketch: attributes_for(:sketch_with_uploaded_file) } #attributes_for (FactoryBot) creates a params hash, mimicking the hash from a form
           }.to change(Sketch, :count).by(1)
         end
 

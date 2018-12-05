@@ -4,7 +4,7 @@ RSpec.describe ArtistsController, type: :controller do
   shared_examples_for "public access to artists" do
     describe "GET #index" do
       before :each do
-        @artist1 = create(:user) #using FactoryGirl syntax methods in rails_helper.rb
+        @artist1 = create(:user) #using FactoryBot syntax methods in rails_helper.rb
         @artist2 = create(:user)
         @artist3 = create(:user)
         get :index

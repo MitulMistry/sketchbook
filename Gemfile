@@ -67,7 +67,7 @@ group :development, :test do
   # gem 'chromedriver-helper'
 
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'pry'
 end
 

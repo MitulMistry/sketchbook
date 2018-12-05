@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence(:username) { |n| Faker::Internet.user_name(nil, %w(_ -)) + n.to_s } #iterate to ensure uniqueness 
     email { Faker::Internet.email }

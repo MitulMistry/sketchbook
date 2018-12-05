@@ -27,7 +27,7 @@ Create the database with `bundle exec rails db:create` and run migrations with `
 For production, the application is configured to use [AWS S3][s3]. You can read more about setting up S3 [here][heroku-s3-setup] (with Heroku).
 
 ## Testing
-The back end test suite is developed using Rspec via the [rspec-rails gem][rspec-rails] with [shoulda-matchers][shoulda]. Model factories are set up with [FactoryGirl][factory-girl].
+The back end test suite is developed using Rspec via the [rspec-rails gem][rspec-rails] with [shoulda-matchers][shoulda]. Model factories are set up with [FactoryBot][factory-bot].
 
 Rspec tests are located under the `/spec` directory. In order to run tests, run `bundle exec rspec` followed by an optional folder or file under the `/spec` directory (for example, if you only want to test models, run `bundle exec rspec spec/models`).
 
@@ -56,6 +56,6 @@ This project is open source under the terms of the [MIT License][mit].
 [heroku-s3-setup]: https://devcenter.heroku.com/articles/s3
 [rspec-rails]: https://github.com/rspec/rspec-rails
 [shoulda]: https://github.com/thoughtbot/shoulda-matchers
-[factory-girl]: https://github.com/thoughtbot/factory_girl_rails
+[factory-bot]: https://github.com/thoughtbot/factory_bot_rails
 [blog-post]: http://mitulmistry.github.io/javascript/rails/angular-rails-app/
 [mit]: http://opensource.org/licenses/MIT

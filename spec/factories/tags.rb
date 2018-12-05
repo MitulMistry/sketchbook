@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :tag do
     sequence(:name) { |n| Faker::Lorem.word + n.to_s } #iterate to ensure uniqueness
 

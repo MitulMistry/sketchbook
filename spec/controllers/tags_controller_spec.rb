@@ -4,7 +4,7 @@ RSpec.describe TagsController, type: :controller do
   shared_examples_for "public access to tags" do
     describe "GET #index" do
       before :each do
-        @tag1 = create(:tag) #using FactoryGirl syntax methods in rails_helper.rb
+        @tag1 = create(:tag) #using FactoryBot syntax methods in rails_helper.rb
         @tag2 = create(:tag)
         @tag3 = create(:tag)
         get :index
@@ -26,7 +26,7 @@ RSpec.describe TagsController, type: :controller do
 
     describe "GET #non_empty" do
       before :each do
-        @tag1 = create(:tag_with_sketch) #using FactoryGirl syntax methods in rails_helper.rb
+        @tag1 = create(:tag_with_sketch) #using FactoryBot syntax methods in rails_helper.rb
         @tag2 = create(:tag_with_sketch)
         @tag3 = create(:tag)
         get :non_empty
@@ -78,7 +78,7 @@ RSpec.describe TagsController, type: :controller do
       context "with valid attributes" do
         it "saves the new tag in the database" do
           expect { #proc - evaluates code before and after
-            post :create, params: { tag: attributes_for(:tag) } #attributes_for (FactoryGirl) creates a params hash, mimicking the hash from a form
+            post :create, params: { tag: attributes_for(:tag) } #attributes_for (FactoryBot) creates a params hash, mimicking the hash from a form
           }.to change(Tag, :count).by(1)
         end
 
