@@ -25,7 +25,7 @@ end
     description: Faker::Lorem.paragraph
   )
   
-  rand = Faker::Number.between(1, 3)
+  rand = Faker::Number.between(from: 1, to: 3)
 
   if rand == 1
     sketch.image_from_url("http://loremflickr.com/800/600/sketch")
@@ -43,5 +43,5 @@ end
 Sketch.all.each do |sketch|
   random_tags = Tag.all.order("RANDOM()")
   sketch.tags << random_tags.first
-  sketch.tags << random_tags.second if Faker::Number.between(1, 2) == 1
+  sketch.tags << random_tags.second if Faker::Number.between(from: 1, to: 2) == 1
 end
