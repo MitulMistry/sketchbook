@@ -6,11 +6,11 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0', '>= 6.0.3.4'
 # Use PostgreSQL as the database for Active Record
-gem 'pg', '~> 1.1', '>= 1.1.3'
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '>= 6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -19,11 +19,11 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.4'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks', '~> 5' #not needed for Angular site
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -36,17 +36,17 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'devise', '~> 4.5' # For authentication
-gem 'active_model_serializers', '~> 0.10.8' # For serializing JSON responses from API
+gem 'devise', '~> 4.7', '>= 4.7.3' # For authentication
+gem 'active_model_serializers', '~> 0.10.10' # For serializing JSON responses from API
 gem 'paperclip', '~> 6.1' # For image attachments
-gem 'aws-sdk', '~> 3.0', '>= 3.0.1' # For image uploading to S3 in production
-gem 'faker' #used for production seeding as well as tests
+gem 'aws-sdk-s3', '~> 1.85' # For image uploading to S3 in production
+gem 'faker', '~> 2.14' #used for production seeding as well as tests
 
-gem 'bower-rails' #use Bower to manage front end dependencies (Angular)
-gem 'angular-rails-templates' #use html templates with the Rails asset pipeline for Angular
-gem 'angular_rails_csrf' #allows csrf for angular
+gem 'bower-rails', '~> 0.12.0' #use Bower to manage front end dependencies (Angular)
+gem 'angular-rails-templates', '~> 1.1' #use html templates with the Rails asset pipeline for Angular
+gem 'angular_rails_csrf', '~> 4.5' #allows csrf for angular
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -66,8 +66,8 @@ group :development, :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   # gem 'chromedriver-helper'
 
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'factory_bot_rails', '~> 6.1'
   gem 'pry'
 end
 
@@ -75,7 +75,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   # gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
 end
 
 group :production do
