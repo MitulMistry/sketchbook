@@ -9,7 +9,7 @@ FactoryBot.define do
     end
 
     factory :invalid_tag do
-      name { Faker::Lorem.characters(50) }
+      name { Faker::Lorem.characters(number: 50) }
     end
   end
 end

@@ -32,7 +32,7 @@ RSpec.describe Sketch, type: :model do
     it "creates an image from a url" do
       sketch = build(:sketch)
       sketch.image = nil
-      sketch.image_from_url(Faker::LoremPixel.image("300x200"))
+      sketch.image_from_url(Faker::LoremPixel.image(size: "300x200"))
       sketch.save
 
       expect(sketch).to be_valid

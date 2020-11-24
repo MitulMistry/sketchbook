@@ -64,6 +64,9 @@ RSpec.configure do |config|
 
   # Include to test Paperclip attachments
   config.include Paperclip::Shoulda::Matchers
+
+  # Use old method for FactoryBot associations build strategy
+  FactoryBot.use_parent_strategy = false
 end
 
 Shoulda::Matchers.configure do |config|
