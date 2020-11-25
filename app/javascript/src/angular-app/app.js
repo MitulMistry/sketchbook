@@ -1,7 +1,19 @@
+import angular from 'angular';
+import 'angular-ui-router';
+import 'angular-resource';
+import 'angular-bootstrap';
+import 'AngularDevise';
+import 'angular-messages';
+import 'angular-flash-alert';
+import 'ng-file-upload';
+import 'checklist-model';
+import 'angular-utils-pagination';
+import 'angular-sticky-footer/angular-sticky-footer.js';
+
 angular
   .module('app', [ //define module and include dependencies
     'ui.router', //for routing
-    'templates', //use angular-rails-templates gem to include html templates in the Rails asset pipeline for Angular
+    // 'templates', //use angular-rails-templates gem to include html templates in the Rails asset pipeline for Angular
     //'ngResource', //allow use of $resource
     'ui.bootstrap', //angular ui bootstrap - bootstrap components written in angular
     'Devise', //angular-devise to communicate with rails devise for authentication
