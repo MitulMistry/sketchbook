@@ -2,6 +2,9 @@
   "name": "sketchbook",
   "private": true,
   "dependencies": {
+    "@rails/actioncable": "^6.0.3-4",
+    "@rails/activestorage": "^6.0.3-4",
+    "@rails/ujs": "^6.0.3-4",
     "@rails/webpacker": "4.3.0",
     "AngularDevise": "https://github.com/cloudspace/angular_devise",
     "angular": "^1.8.2",
@@ -14,7 +17,9 @@
     "angular-utils-pagination": "^0.11.1",
     "bootstrap": "3.3.7",
     "checklist-model": "^1.0.0",
-    "ng-file-upload": "^12.2.13"
+    "jquery": "^3.5.1",
+    "ng-file-upload": "^12.2.13",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

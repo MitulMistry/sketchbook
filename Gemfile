@@ -21,7 +21,7 @@ gem 'webpacker', '~> 4.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.4'
+# gem 'jquery-rails', '~> 4.4'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks', '~> 5' #not needed for Angular site
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -47,7 +47,7 @@ gem 'aws-sdk-s3', '~> 1.85' # For image uploading to S3 in production
 gem 'faker', '~> 2.14' #used for production seeding as well as tests
 
 gem 'bower-rails', '~> 0.12.0' #use Bower to manage front end dependencies (Angular)
-gem 'angular-rails-templates', '~> 1.1' #use html templates with the Rails asset pipeline for Angular
+# gem 'angular-rails-templates', '~> 1.1' #use html templates with the Rails asset pipeline for Angular
 gem 'angular_rails_csrf', '~> 4.5' #allows csrf for angular
 
 group :development do
