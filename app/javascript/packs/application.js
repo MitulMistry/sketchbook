@@ -15,7 +15,10 @@ function importAll (r) {
   r.keys().forEach(r);
 }
 
-importAll(require.context('../src/', true, /\.js$/));
+importAll(require.context('../src/angular-app/', true, /\.js$/));
+importAll(require.context('../src/templates/', true, /\.html$/));
+// importAll(require.context('../src/', true, /\.js$|\.html$/));
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

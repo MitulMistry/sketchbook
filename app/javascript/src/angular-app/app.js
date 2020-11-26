@@ -1,3 +1,4 @@
+//Angular dependency imports
 import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-resource';
@@ -9,6 +10,18 @@ import 'ng-file-upload';
 import 'checklist-model';
 import 'angular-utils-pagination';
 import 'angular-sticky-footer/angular-sticky-footer.js';
+
+//Template imports
+import homeTemplate from '../templates/home.html';
+import authLoginTemplate from '../templates/auth/login.html';
+import authRegisterTemplate from '../templates/auth/register.html';
+import artistsIndexTemplate from '../templates/artists/index.html';
+import artistsShowTemplate from '../templates/artists/show.html';
+import artistsEditTemplate from '../templates/artists/edit.html';
+import sketchesNewTemplate from '../templates/sketches/new.html';
+import sketchesIndexTemplate from '../templates/sketches/index.html';
+import sketchesShowTemplate from '../templates/sketches/show.html';
+import sketchesEditTemplate from '../templates/sketches/edit.html';
 
 angular
   .module('app', [ //define module and include dependencies
@@ -28,7 +41,7 @@ angular
     $stateProvider
       .state('home', { //create a ui-router state
         url: '/', //set url route
-        templateUrl: 'home.html', //set template url
+        template: homeTemplate, //set template  - can also do require('../templates/home.html')
         controller: 'HomeController as ctrl', //set controller for this route (equavelent of using <ng-controller="..."> in template)
         resolve: { //execute this code before the template is rendered
           homeSketches: function (SketchesService) { //set sketches equal to SketchesService.getSketches() to be used in the template
@@ -38,7 +51,7 @@ angular
       })
       .state('home.login', { //home.login uses home.html and inserts login template into the <ui-view>
         url: 'login',
-        templateUrl: 'auth/login.html',
+        template: authLoginTemplate,
         controller: 'AuthController',
         onEnter: function($state, Auth) {
           if (Auth._currentUser) { //if already logged in, redirect - uses angular devise
@@ -50,7 +63,7 @@ angular
       })
       .state('home.register', {
         url: 'register',
-        templateUrl: 'auth/register.html',
+        template: authRegisterTemplate,
         controller: 'AuthController',
         onEnter: function($state, Auth) {
           if (Auth._currentUser) { //if already logged in, redirect
@@ -62,7 +75,7 @@ angular
       })
       .state('home.artists', {
         url: 'artists',
-        templateUrl: 'artists/index.html',
+        template: artistsIndexTemplate,
         controller: 'ArtistsController as ctrl',
         resolve: { //execute this code before the template is rendered
           artists: function (ArtistsService) { //set artists equal to ArtistsService.getArtists() to be used in the template
@@ -72,7 +85,7 @@ angular
       })
       .state('home.artist', {
         url: 'artists/:id',
-        templateUrl: 'artists/show.html',
+        template: artistsShowTemplate,
         controller: 'ArtistController as ctrl',
         resolve: { //execute this code before the template is rendered
           artist: function ($stateParams, ArtistsService) {
@@ -88,7 +101,7 @@ angular
       })
       .state('home.profile', {
         url: 'profile',
-        templateUrl: 'artists/show.html',
+        template: artistsShowTemplate,
         controller: 'ArtistController as ctrl',
         resolve: { //execute this code before the template is rendered
           artist: function (Auth, ArtistsService) {
@@ -109,7 +122,7 @@ angular
       })
       .state('home.editArtist', {
         url: 'artists/:id/edit',
-        templateUrl: 'artists/edit.html',
+        template: artistsEditTemplate,
         controller: 'EditArtistController as ctrl',
         resolve: { //execute this code before the template is rendered
           artist: function ($stateParams, ArtistsService) {
@@ -126,7 +139,7 @@ angular
       })
       .state('home.newSketch', {
         url: 'sketches/new',
-        templateUrl: 'sketches/new.html',
+        template: sketchesNewTemplate,
         controller: 'NewSketchController as ctrl',
         resolve: { //execute this code before the template is rendered
           tags: function (TagsService) {
@@ -141,7 +154,7 @@ angular
       })
       .state('home.sketches', {
         url: 'sketches',
-        templateUrl: 'sketches/index.html',
+        template: sketchesIndexTemplate,
         controller: 'SketchesController as ctrl',
         resolve: { //execute this code before the template is rendered
           sketches: function (SketchesService) { //set sketches equal to SketchesService.getSketches() to be used in the template
@@ -154,7 +167,7 @@ angular
       })
       .state('home.sketch', {
         url: 'sketches/:id',
-        templateUrl: 'sketches/show.html',
+        template: sketchesShowTemplate,
         controller: 'SketchController as ctrl',
         resolve: { //execute this code before the template is rendered
           sketch: function ($stateParams, SketchesService) {
@@ -167,7 +180,7 @@ angular
       })
       .state('home.editSketch', {
         url: 'sketches/:id/edit',
-        templateUrl: 'sketches/edit.html',
+        template: sketchesEditTemplate,
         controller: 'EditSketchController as ctrl',
         resolve: { //execute this code before the template is rendered
           sketch: function ($stateParams, SketchesService) {
