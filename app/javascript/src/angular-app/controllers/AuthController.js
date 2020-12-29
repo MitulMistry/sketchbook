@@ -23,6 +23,8 @@ function AuthController($scope, $state, Auth, MessagesService) {
 
 }
 
+AuthController.$inject = ['$scope', '$state', 'Auth', 'MessagesService']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('AuthController', AuthController);

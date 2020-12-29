@@ -21,6 +21,8 @@ function SketchController(sketch, user, SketchesService) { //sketch and user are
   }
 }
 
+SketchController.$inject = ['sketch', 'user', 'SketchesService']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('SketchController', SketchController);

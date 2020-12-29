@@ -15,6 +15,8 @@ function ArtistController(artist, user, sketches) { //artist, user, and sketches
   }
 }
 
+ArtistController.$inject = ['artist', 'user', 'sketches']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('ArtistController', ArtistController);

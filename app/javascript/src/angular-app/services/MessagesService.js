@@ -30,6 +30,8 @@ function MessagesService(Flash) {
   }
 }
 
+MessagesService.$inject = ['Flash']; //explicit dependency injection for Webpack JS minification
+
 angular
   .module('app')
   .service('MessagesService', MessagesService);

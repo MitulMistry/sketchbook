@@ -36,6 +36,8 @@ function TagsService($http, $state, MessagesService, Auth) {
   }
 }
 
+TagsService.$inject = ['$http', '$state', 'MessagesService', 'Auth']; //explicit dependency injection for Webpack JS minification
+
 angular
   .module('app')
   .service('TagsService', TagsService);

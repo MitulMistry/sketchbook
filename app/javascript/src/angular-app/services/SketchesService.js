@@ -126,6 +126,8 @@ function SketchesService($http, $state, Upload, $timeout, MessagesService, Auth)
   }
 }
 
+SketchesService.$inject = ['$http', '$state', 'Upload', '$timeout', 'MessagesService', 'Auth']; //explicit dependency injection for Webpack JS minification
+
 angular
   .module('app')
   .service('SketchesService', SketchesService);

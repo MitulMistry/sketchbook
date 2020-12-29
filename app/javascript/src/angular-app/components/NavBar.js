@@ -5,9 +5,9 @@ var NavbarComponent = { //defining an angular component (through setting an obje
   bindings: { //define arguments being passed to component - bindings for components, scope for directives
     data: '=' //set data to a variable being passed in, i.e. when used: <item id="post"></item>
   },
-  controller: function($state) { //can add functionality to a controller for this component by injecting dependencies such as a service
+  controller: ['$state', function($state) { //can add functionality to a controller for this component by injecting dependencies such as a service
     var ctrl = this;
-  },
+  }],
   controllerAs: 'navbar' //sets controller to be refered to as footer in the template
 };
 

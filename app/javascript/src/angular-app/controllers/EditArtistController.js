@@ -8,6 +8,8 @@ function EditArtistController(artist, $state, $stateParams, Auth, ArtistsService
   }
 }
 
+EditArtistController.$inject = ['artist', '$state', '$stateParams', 'Auth', 'ArtistsService']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('EditArtistController', EditArtistController);

@@ -47,6 +47,8 @@ function ArtistsService($http, $state, MessagesService, Auth) {
   }
 }
 
+ArtistsService.$inject = ['$http', '$state', 'MessagesService', 'Auth']; //explicit dependency injection for Webpack JS minification
+
 angular
   .module('app')
   .service('ArtistsService', ArtistsService);

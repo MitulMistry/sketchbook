@@ -6,6 +6,8 @@ function ArtistsController(artists) { //artists is injected from app.js resolve
   ctrl.pageSize = 9;
 }
 
+ArtistsController.$inject = ['artists']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('ArtistsController', ArtistsController);

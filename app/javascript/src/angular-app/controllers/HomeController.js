@@ -9,6 +9,8 @@ function HomeController($state, homeSketches) { //sketches are injected from app
   }
 }
 
+HomeController.$inject = ['$state', 'homeSketches']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('HomeController', HomeController);

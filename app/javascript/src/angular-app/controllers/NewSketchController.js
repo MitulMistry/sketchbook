@@ -22,6 +22,8 @@ function NewSketchController(tags, $scope, Upload, $timeout, SketchesService, Ta
   }
 }
 
+NewSketchController.$inject = ['tags', '$scope', 'Upload', '$timeout', 'SketchesService', 'TagsService']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('NewSketchController', NewSketchController);

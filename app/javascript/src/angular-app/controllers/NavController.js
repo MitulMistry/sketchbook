@@ -32,6 +32,8 @@ function NavController($scope, $state, Auth, MessagesService, $window) {
   });
 }
 
+NavController.$inject = ['$scope', '$state', 'Auth', 'MessagesService', '$window']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('NavController', NavController);

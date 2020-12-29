@@ -9,6 +9,8 @@ function SketchesController(sketches, tags) { //sketches and tags are injected f
   ctrl.pageSize = 9;
 }
 
+SketchesController.$inject = ['sketches', 'tags']; //explicit dependency injection for Webpack JS minification
+
 angular
 	.module('app')
 	.controller('SketchesController', SketchesController);
