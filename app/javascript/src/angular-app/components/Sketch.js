@@ -1,5 +1,7 @@
+import sketchTemplate from '../../templates/sketches/_sketch.html';
+
 var Sketch = { //defining an angular component (through setting an object) - Could also use a directive
-  templateUrl: 'sketches/_sketch.html', //sets html template to be used
+  template: sketchTemplate, //sets html template to be used
   bindings: { //define arguments being passed to component - bindings for components, scope for directives
     data: '=' //set data to a variable being passed in, i.e. when used: <item id="post"></item>
   },

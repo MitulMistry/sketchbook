@@ -1,5 +1,7 @@
+import artistTemplate from '../../templates/artists/_artist.html';
+
 var Artist = { //defining an angular component (through setting an object) - Could also use a directive
-  templateUrl: 'artists/_artist.html', //sets html template to be used
+  template: artistTemplate, //sets html template to be used
   bindings: { //define arguments being passed to component - bindings for components, scope for directives
     data: '=' //set data to a variable being passed in, i.e. when used: <item id="post"></item>
   },
