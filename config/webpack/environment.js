@@ -1,20 +1,5 @@
 const { environment } = require('@rails/webpacker')
 
-// use html-loader plugin to load AngularJS html templates through Webpack
-// environment.loaders.append('html', {
-//     test: /\.html$/,
-//     use: [{
-//       loader: 'html-loader',
-//       options: {
-//         minimize: true,
-//         removeAttributeQuotes: false,
-//         caseSensitive: true,
-//         customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
-//         customAttrAssign: [ /\)?\]?=/ ]
-//       }
-//     }]
-//   })
-
 // Adds `var jQuery = require('jquery') to legacy jQuery plugins
 const webpack = require('webpack')
 environment.plugins.append('Provide', new webpack.ProvidePlugin({
@@ -23,10 +8,10 @@ environment.plugins.append('Provide', new webpack.ProvidePlugin({
 }))
 
 // Adds window.$ = require('jquery')
-environment.loaders.append('jquery', {
-  test: require.resolve('jquery'),
+environment.loaders.append('jquery', {  
   rules: [
     {
+      test: require.resolve('jquery'),
       loader: 'expose-loader',
       options: {
         exposes: ['$', 'jQuery'],
@@ -35,10 +20,17 @@ environment.loaders.append('jquery', {
   ],
 })
 
-// use html-loader plugin to load AngularJS html templates through Webpack
+// Uses html-loader plugin to load AngularJS html templates through Webpack
 environment.loaders.append('html', {
-  test: /\.html$/,
-  loader: 'html-loader'
+  rules: [
+    {
+      test: /\.html$/i,
+      loader: 'html-loader',
+      options: {
+        minimize: true,
+      },
+    },
+  ]
 })
 
 module.exports = environment
