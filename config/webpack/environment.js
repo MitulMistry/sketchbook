@@ -1,7 +1,5 @@
 const { environment } = require('@rails/webpacker')
 
-module.exports = environment
-
 // use html-loader plugin to load AngularJS html templates through Webpack
 // environment.loaders.append('html', {
 //     test: /\.html$/,
@@ -17,7 +15,30 @@ module.exports = environment
 //     }]
 //   })
 
+// Adds `var jQuery = require('jquery') to legacy jQuery plugins
+const webpack = require('webpack')
+environment.plugins.append('Provide', new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery'
+}))
+
+// Adds window.$ = require('jquery')
+environment.loaders.append('jquery', {
+  test: require.resolve('jquery'),
+  rules: [
+    {
+      loader: 'expose-loader',
+      options: {
+        exposes: ['$', 'jQuery'],
+      },
+    },
+  ],
+})
+
+// use html-loader plugin to load AngularJS html templates through Webpack
 environment.loaders.append('html', {
   test: /\.html$/,
   loader: 'html-loader'
 })
+
+module.exports = environment
