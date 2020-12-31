@@ -15,12 +15,16 @@ RSpec.describe Sketch, type: :model do
       it { should validate_presence_of(:title) }
       it { should validate_length_of(:title).is_at_most(100) }
 
-      it { should have_attached_file(:image) }
-      it { should validate_attachment_presence(:image) }
-      it { should validate_attachment_content_type(:image).
-        allowing("image/jpeg", "image/jpg", "image/gif", "image/png").
-        rejecting("text/plain", "text/xml") }
-      it { should validate_attachment_size(:image).less_than(2.megabytes) }
+      # it { should have_attached_file(:image) }
+      # it { should validate_attachment_presence(:image) }
+      # it { should validate_attachment_content_type(:image).
+      #   allowing("image/jpeg", "image/jpg", "image/gif", "image/png").
+      #   rejecting("text/plain", "text/xml") }
+      # it { should validate_attachment_size(:image).less_than(2.megabytes) }
+
+      it { should validate_content_type_of(:image).allowing("image/png", "image/jpeg", "image/jpg") }
+      it { should validate_content_type_of(:image).rejecting("text/plain", "text/xml") }
+      it { should validate_size_of(:image).less_than(2.megabytes) }
     end
 
     context "other validations" do
@@ -28,16 +32,16 @@ RSpec.describe Sketch, type: :model do
     end
   end
 
-  describe "image from url" do
-    it "creates an image from a url" do
-      sketch = build(:sketch)
-      sketch.image = nil
-      sketch.image_from_url(Faker::LoremPixel.image(size: "300x200"))
-      sketch.save
+  # describe "image from url" do
+  #   it "creates an image from a url" do
+  #     sketch = build(:sketch)
+  #     sketch.image = nil
+  #     sketch.image_from_url(Faker::LoremPixel.image(size: "300x200"))
+  #     sketch.save
 
-      expect(sketch).to be_valid
-    end
-  end
+  #     expect(sketch).to be_valid
+  #   end
+  # end
 
   describe "randomized" do
     it "returns a random number of sketches" do
