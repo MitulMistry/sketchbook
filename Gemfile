@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.11'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,12 +42,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise', '~> 4.7', '>= 4.7.3' # For authentication
 gem 'active_model_serializers', '~> 0.10.10' # For serializing JSON responses from API
-gem 'paperclip', '~> 6.1' # For image attachments
 gem 'aws-sdk-s3', '~> 1.85' # For image uploading to S3 in production
 gem 'faker', '~> 2.14' #used for production seeding as well as tests
+gem 'active_storage_validations', '~> 0.9.1'
 
-gem 'bower-rails', '~> 0.12.0' #use Bower to manage front end dependencies (Angular)
-# gem 'angular-rails-templates', '~> 1.1' #use html templates with the Rails asset pipeline for Angular
 gem 'angular_rails_csrf', '~> 4.5' #allows csrf for angular
 
 group :development do
