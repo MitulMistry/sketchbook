@@ -8,14 +8,12 @@ class SketchSerializer < ActiveModel::Serializer
   has_one :image #original image
 
   def image_large
-    # object.image.url(:large)
-    variant = object.image.variant(resize_to_limit: "1024x1024")
+    variant = object.image.variant(resize_to_fit: [1024, 1024])
     return rails_representation_url(variant, only_path: true)
   end
 
   def image_medium
-    # object.image.url(:medium)
-    variant = object.image.variant(resize_to_limit: "400x600")
+    variant = object.image.variant(resize_to_fit: [400, 600])
     return rails_representation_url(variant, only_path: true)
   end
 

@@ -13,8 +13,8 @@ class Sketch < ActiveRecord::Base
 
   validates :image, content_type: ['image/png', 'image/jpg', 'image/jpeg'],    
     size: { less_than: 2.megabytes },
-    dimension: { width: { min: 200, max: 2000 },
-                height: { min: 200, max: 2000 } }
+    dimension: { width: { min: 400, max: 2000 },
+                height: { min: 400, max: 2000 } }
 
   extend ClassOrderable #for "randomized" method in concern
 
