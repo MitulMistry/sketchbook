@@ -22,6 +22,8 @@ import sketchesNewTemplate from '../templates/sketches/new.html';
 import sketchesIndexTemplate from '../templates/sketches/index.html';
 import sketchesShowTemplate from '../templates/sketches/show.html';
 import sketchesEditTemplate from '../templates/sketches/edit.html';
+import sketchesFormTemplate from '../templates/sketches/_form.html';
+import formMessagesTemplate from '../templates/messages.html';
 
 angular
   .module('app', [ //define module and include dependencies
@@ -200,4 +202,8 @@ angular
       });
 
     $urlRouterProvider.otherwise('/'); //default route
-}]);
+  }])
+  .run(['$templateCache', function($templateCache) {
+    $templateCache.put('sketches/_form.html', sketchesFormTemplate); //store form in template cache so it can be used with ng-include
+    $templateCache.put('messages.html', formMessagesTemplate); //store messages in template cache so it can be used with ng-messages-include
+  }]);
