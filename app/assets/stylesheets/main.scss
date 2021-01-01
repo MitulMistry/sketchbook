@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 $primary-black: black;
 $primary-red: #BC0A3C;
@@ -12,6 +12,10 @@ $gray1-dark-transparent: rgba(102, 78, 85, .6);
 body {
   font-family: 'Lato', sans-serif;
   font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
 }
 
 a {
@@ -101,10 +105,6 @@ a:hover, a:focus {
   background: #eee image-url("sketchbook_jumbo_bg_01.jpg") no-repeat center center;
   background-size: cover;
 
-  h1 {
-
-  }
-
   h3 {
     color: $primary-red;
   }
@@ -182,8 +182,10 @@ label {
 .row {
   -moz-column-width: 20em;
   -webkit-column-width: 20em;
+  column-width: 20em;
   -moz-column-gap: 1em;
-  -webkit-column-gap:1em;
+  -webkit-column-gap:1em;  
+  column-gap: 1em;
 }
 
 .item {
